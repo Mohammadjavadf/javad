@@ -1,0 +1,4866 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>محمدجواد فرج پور | توسعه دهنده فرانت و کارشناس سئو</title>
+    <meta
+      name="description"
+      content="رزومه محمدجواد فرج پور، توسعه‌دهنده فرانت‌اند و کارشناس سئو با ۳ سال تجربه در React و ۲ سال سابقه سئو."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://example.com/demo-developer.html" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&family=Roboto:wght@400;700&family=Playfair+Display:wght@700;900&family=Fira+Code:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/rastikerdar/samim-font@v4.0.5/dist/font-face.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/font-face.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --accent: #3b82f6;
+        --accent2: #06b6d4;
+        --accent3: #6366f1;
+        --font-fa: "Sahel", sans-serif;
+        --font-en: "Poppins", sans-serif;
+
+        --bg: #0a0e1a;
+        --panel: #111827;
+        --panel2: #1a2332;
+        --border: #1f2937;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --code-bg: #0d1117;
+        --shadow: 0 20px 40px #0008;
+      }
+      :root[data-theme="light"] {
+        --bg: #f8fafc;
+        --panel: #ffffff;
+        --panel2: #f1f5f9;
+        --border: #e2e8f0;
+        --text: #0f172a;
+        --muted: #64748b;
+        --code-bg: #f1f5f9;
+        --shadow: 0 20px 40px #0f172a1a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-fa);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        min-height: 100vh;
+        transition:
+          background 0.4s,
+          color 0.4s;
+        overflow-x: hidden;
+      }
+      html[dir="ltr"] body {
+        font-family: var(--font-en);
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-en);
+        font-weight: 700;
+      }
+
+      #scrollProgress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background: linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2),
+          var(--accent3)
+        );
+        z-index: 1001;
+        transition: width 0.1s;
+      }
+
+      nav.navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 14px 24px;
+        background: color-mix(in srgb, var(--bg) 80%, transparent);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid transparent;
+        transition: all 0.3s;
+      }
+      nav.navbar.scrolled {
+        border-bottom-color: var(--border);
+        box-shadow: 0 4px 20px #0002;
+      }
+      .nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+      .nav-brand {
+        font-weight: 900;
+        font-size: 1.1rem;
+        cursor: pointer;
+        color: var(--accent);
+        white-space: nowrap;
+        font-family: var(--font-en);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nav-brand .brand-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0a0e1a;
+        font-size: 1rem;
+      }
+      .nav-brand {
+        min-width: 0;
+        flex-shrink: 0;
+        gap: 9px;
+      }
+      .nav-brand .brand-logo {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        border-radius: 10px;
+        flex: 0 0 40px;
+        display: block;
+      }
+      .nav-links {
+        display: flex;
+        gap: 6px;
+        list-style: none;
+        align-items: center;
+      }
+      .nav-links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.85rem;
+        padding: 8px 14px;
+        border-radius: 8px;
+        transition: all 0.25s;
+        white-space: nowrap;
+        font-family: var(--font-en);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .nav-links a i {
+        font-size: 0.8rem;
+        opacity: 0.7;
+      }
+      .nav-links a:hover {
+        color: var(--text);
+        background: var(--panel);
+      }
+      .nav-links a:hover i {
+        opacity: 1;
+      }
+      .nav-links a.active {
+        color: var(--accent);
+        background: color-mix(in srgb, var(--accent) 12%, transparent);
+      }
+      .nav-links a.active i {
+        opacity: 1;
+      }
+      .nav-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .ctrl-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        color: var(--text);
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s;
+      }
+      .ctrl-btn:hover {
+        background: var(--accent);
+        color: #000;
+        transform: translateY(-2px);
+        border-color: var(--accent);
+      }
+      .ctrl-btn.lang {
+        width: auto;
+        padding: 0 12px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+      .hamburger {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-size: 1rem;
+        padding: 0;
+      }
+      .mobile-menu {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: var(--panel);
+        border-bottom: 1px solid var(--border);
+        transform: translateY(-120%);
+        transition: transform 0.3s;
+        padding: 20px 24px;
+      }
+      .mobile-menu.open {
+        transform: translateY(0);
+      }
+      .mobile-menu a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        color: var(--text);
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+        font-family: var(--font-en);
+      }
+      .mobile-menu a i {
+        width: 18px;
+        color: var(--muted);
+      }
+      .mobile-menu a:hover,
+      .mobile-menu a.active {
+        background: color-mix(in srgb, var(--accent) 12%, transparent);
+        color: var(--accent);
+      }
+      @media (max-width: 1120px) {
+        .nav-links {
+          display: none !important;
+        }
+        .hamburger {
+          display: flex !important;
+        }
+        .nav-inner {
+          gap: 12px;
+        }
+        .mobile-menu {
+          display: block;
+        }
+      }
+      @media (min-width: 1121px) {
+        .mobile-menu {
+          display: none !important;
+        }
+      }
+      @media (min-width: 1121px) {
+        html[dir="ltr"] .nav-links {
+          gap: 2px;
+        }
+        html[dir="ltr"] .nav-links a {
+          padding: 8px 9px;
+          font-size: 0.8rem;
+        }
+        html[dir="ltr"] .nav-inner {
+          gap: 12px;
+        }
+        html[dir="ltr"] .nav-brand {
+          font-size: 1rem;
+        }
+      }
+      @media (max-width: 520px) {
+        nav.navbar {
+          padding: 10px 12px;
+        }
+        .nav-brand {
+          font-size: 0.95rem !important;
+          gap: 7px;
+        }
+        .nav-brand .brand-logo {
+          width: 34px;
+          height: 34px;
+          flex-basis: 34px;
+        }
+        .nav-actions {
+          gap: 5px;
+        }
+        .ctrl-btn {
+          width: 36px;
+          height: 36px;
+        }
+        .ctrl-btn.lang {
+          padding: 0 9px;
+        }
+      }
+
+      header.hero {
+        padding: 130px 24px 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 50px;
+        align-items: center;
+      }
+      .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 6px;
+        background: color-mix(in srgb, var(--accent3) 15%, transparent);
+        color: var(--accent3);
+        font-size: 0.8rem;
+        margin-bottom: 16px;
+        border: 1px solid color-mix(in srgb, var(--accent3) 30%, transparent);
+        font-family: var(--font-en);
+      }
+      .hero-tag i {
+        font-size: 0.55rem;
+        animation: pulse 1.5s infinite;
+      }
+      @keyframes pulse {
+        50% {
+          opacity: 0.4;
+        }
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 10px;
+        line-height: 1.1;
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: var(--accent);
+        text-shadow: 0 0 20px color-mix(in srgb, var(--accent) 50%, transparent);
+      }
+      .hero .role {
+        color: var(--accent2);
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        font-family: var(--font-en);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .hero .role i {
+        color: var(--accent);
+      }
+      .hero .bio {
+        color: var(--muted);
+        max-width: 560px;
+        margin-bottom: 28px;
+      }
+      .hero .cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        padding: 12px 24px;
+        border-radius: 8px;
+        border: none;
+        font-family: var(--font-en);
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.25s;
+      }
+      .btn i {
+        font-size: 0.9em;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #000;
+      }
+      .btn-primary:hover {
+        background: var(--accent2);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+      .btn-ghost:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .avatar-wrap {
+        position: relative;
+      }
+      .avatar {
+        width: 180px;
+        height: 180px;
+        border-radius: 20px;
+        background: var(--code-bg);
+        border: 2px solid var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: var(--accent);
+        box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 30%, transparent);
+        position: relative;
+        overflow: hidden;
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+
+      section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 70px 24px;
+        scroll-margin-top: 80px;
+      }
+      .section-head {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .section-head .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        font-family: var(--font-en);
+        padding: 6px 14px;
+        border-radius: 20px;
+        background: color-mix(in srgb, var(--accent) 12%, transparent);
+        border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+      }
+      .section-head h2 {
+        font-size: 2.2rem;
+        margin-bottom: 8px;
+      }
+      .section-head h2 i {
+        color: var(--accent3);
+        margin-left: 8px;
+      }
+      html[dir="ltr"] .section-head h2 i {
+        margin-left: 0;
+        margin-right: 8px;
+      }
+      .section-head p {
+        color: var(--muted);
+        max-width: 520px;
+        margin: 0 auto;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 16px;
+      }
+      .stat {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .stat::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+      }
+      .stat:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent);
+      }
+      .stat .stat-icon {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto 10px;
+        border-radius: 10px;
+        background: color-mix(in srgb, var(--accent) 15%, transparent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        font-size: 1.1rem;
+      }
+      .stat .num {
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: var(--accent);
+        font-family: var(--font-en);
+      }
+      .stat .label {
+        color: var(--muted);
+        font-size: 0.8rem;
+        margin-top: 4px;
+      }
+
+      .matrix {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 14px;
+      }
+      .skill {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px;
+      }
+      .skill .top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: 0.85rem;
+        font-family: var(--font-en);
+        align-items: center;
+      }
+      .skill .top span:first-child {
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .skill .top span:first-child i {
+        color: var(--accent);
+        width: 16px;
+        text-align: center;
+      }
+      .skill .top span:last-child {
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .bar {
+        height: 6px;
+        background: var(--bg);
+        border-radius: 3px;
+        overflow: hidden;
+      }
+      .bar i {
+        display: block;
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        border-radius: 3px;
+        transition: width 1.2s ease;
+      }
+
+      .filters {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+      }
+      .filter-btn {
+        padding: 8px 18px;
+        border-radius: 6px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        cursor: pointer;
+        font-family: var(--font-en);
+        font-size: 0.8rem;
+        transition: all 0.25s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--accent);
+        color: #000;
+        border-color: var(--accent);
+      }
+
+      /* ============ PROJECTS GRID ============ */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        align-items: stretch;
+      }
+      @media (max-width: 980px) {
+        .projects-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 620px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .proj-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        min-height: 230px;
+        height: 100%;
+      }
+      .proj-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--accent);
+        box-shadow: 0 0 30px color-mix(in srgb, var(--accent) 20%, transparent);
+      }
+      .proj-card.hide {
+        display: none;
+      }
+      .proj-card .head {
+        padding: 18px 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        border-bottom: 1px solid var(--border);
+        min-height: 64px;
+      }
+      .proj-card .lang-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        background: var(--accent);
+      }
+      .proj-card .head h3 {
+        font-size: 1rem;
+        flex: 1;
+        word-break: break-all;
+        color: var(--accent);
+        font-family: var(--font-en);
+        line-height: 1.3;
+      }
+      .proj-card .body {
+        padding: 18px 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .proj-card .body p {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: calc(1.7em * 2);
+      }
+      .proj-card .tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: auto;
+      }
+      .proj-card .tags span {
+        background: var(--bg);
+        color: var(--muted);
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-family: var(--font-en);
+      }
+      .proj-card .stats-row {
+        display: flex;
+        gap: 16px;
+        padding: 12px 20px;
+        border-top: 1px solid var(--border);
+        font-size: 0.75rem;
+        color: var(--muted);
+        font-family: var(--font-en);
+        margin-top: auto;
+      }
+      .proj-card .stats-row span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .proj-card .stats-row i {
+        color: var(--accent);
+      }
+
+      /* ============ FILE BADGE ON CARD ============ */
+      .file-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        z-index: 2;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+        animation: filePulse 2s infinite;
+        pointer-events: none;
+      }
+      html[dir="rtl"] .file-badge {
+        left: auto;
+        right: 12px;
+      }
+      @keyframes filePulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.12);
+        }
+      }
+
+      /* ============ LOAD MORE ============ */
+      .load-more-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        margin-top: 40px;
+      }
+      .load-more-btn {
+        padding: 14px 36px;
+        border-radius: 50px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-family: var(--font-en);
+        font-size: 0.9rem;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 8px 24px
+          color-mix(in srgb, var(--accent) 40%, transparent);
+        transition: all 0.3s;
+      }
+      .load-more-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px
+          color-mix(in srgb, var(--accent) 55%, transparent);
+      }
+      .load-more-btn i {
+        transition: transform 0.3s;
+      }
+      .load-more-btn:hover i {
+        transform: translateY(2px);
+      }
+      .load-more-btn.done {
+        background: var(--panel);
+        color: var(--muted);
+        border: 1px solid var(--border);
+        cursor: default;
+        box-shadow: none;
+      }
+      .load-more-btn.done:hover {
+        transform: none;
+        box-shadow: none;
+      }
+      .load-more-btn.done:hover i {
+        transform: none;
+      }
+      .load-more-counter {
+        font-size: 0.8rem;
+        color: var(--muted);
+        font-family: var(--font-en);
+      }
+      .load-more-counter strong {
+        color: var(--accent);
+      }
+      .projects-grid.single-row-center {
+        justify-content: center;
+      }
+
+      /* ============ MODAL ============ */
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        background: #000d;
+        backdrop-filter: blur(8px);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .modal.open {
+        display: flex;
+        opacity: 1;
+      }
+      .modal .modal-box {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        width: 100%;
+        max-width: 820px;
+        max-height: 90vh;
+        overflow-y: auto;
+        transform: scale(0.95);
+        transition: transform 0.3s;
+      }
+      .modal.open .modal-box {
+        transform: scale(1);
+      }
+      .modal .modal-hero {
+        height: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+        color: #fff;
+        position: relative;
+      }
+      .modal .modal-hero .close-x {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: #0008;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      html[dir="rtl"] .modal .modal-hero .close-x {
+        left: auto;
+        right: 16px;
+      }
+      .modal .modal-body {
+        padding: 28px;
+      }
+      .modal .modal-body h2 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+        color: var(--accent);
+      }
+      .modal .modal-body .meta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+        font-family: var(--font-en);
+      }
+      .modal .modal-body .meta span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .modal .modal-body .meta i {
+        color: var(--accent2);
+      }
+      .modal .modal-body p {
+        color: var(--muted);
+        margin-bottom: 20px;
+        line-height: 1.9;
+      }
+      .modal .tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+      }
+      .modal .tags span {
+        background: color-mix(in srgb, var(--accent) 12%, transparent);
+        color: var(--accent);
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        font-family: var(--font-en);
+      }
+      .modal .modal-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .modal .modal-actions .btn {
+        flex: 1;
+        min-width: 140px;
+        justify-content: center;
+      }
+
+      /* ============ MODAL FILES ============ */
+      .modal-files {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 20px;
+        padding: 14px;
+        background: var(--bg);
+        border-radius: 10px;
+        border: 1px dashed color-mix(in srgb, #10b981 40%, var(--border));
+      }
+      .modal-files .files-title {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #10b981;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 4px;
+        font-family: var(--font-fa);
+      }
+      .modal-files .file-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        transition: all 0.25s;
+      }
+      .modal-files .file-item:hover {
+        border-color: #10b981;
+        transform: translateX(-4px);
+      }
+      html[dir="ltr"] .modal-files .file-item:hover {
+        transform: translateX(4px);
+      }
+      .modal-files .file-item > i:first-child {
+        color: #10b981;
+        font-size: 1.15rem;
+        flex-shrink: 0;
+        width: 24px;
+        text-align: center;
+      }
+      .modal-files .file-item .file-meta {
+        flex: 1;
+        min-width: 0;
+      }
+      .modal-files .file-item .file-meta strong {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--text);
+        margin-bottom: 2px;
+        word-break: break-word;
+      }
+      .modal-files .file-item .file-meta span {
+        font-size: 0.7rem;
+        color: var(--muted);
+        font-family: var(--font-en);
+      }
+      .modal-files .file-item .file-actions {
+        display: flex;
+        gap: 6px;
+        flex-shrink: 0;
+      }
+      .modal-files .file-item .dl-btn,
+      .modal-files .file-item .pv-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s;
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 0;
+      }
+      .modal-files .file-item .dl-btn {
+        background: linear-gradient(135deg, #10b981, #059669);
+      }
+      .modal-files .file-item .pv-btn {
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+      }
+      .modal-files .file-item .dl-btn:hover,
+      .modal-files .file-item .pv-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      /* ============ PREVIEW MODAL ============ */
+      .pdf-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 2100;
+        background: #000c;
+        backdrop-filter: blur(6px);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .pdf-modal.open {
+        display: flex;
+      }
+      .pdf-modal .inner {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        width: 100%;
+        max-width: 1000px;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .pdf-modal .head {
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      .pdf-modal .head strong {
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1;
+      }
+      .pdf-modal .head strong i {
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+      .pdf-modal .head .head-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .pdf-modal .head .head-dl {
+        padding: 8px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.25s;
+      }
+      .pdf-modal .head .head-dl:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+      }
+      .pdf-modal .head button {
+        background: transparent;
+        border: none;
+        color: var(--muted);
+        font-size: 1.2rem;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .pdf-modal .head button:hover {
+        background: var(--panel2);
+        color: var(--text);
+      }
+      .pdf-modal iframe {
+        flex: 1;
+        width: 100%;
+        border: none;
+        background: #fff;
+      }
+      .pdf-modal .preview-error {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 30px;
+        text-align: center;
+        color: var(--muted);
+      }
+      .pdf-modal .preview-error i {
+        font-size: 3rem;
+        color: #ef4444;
+      }
+      .pdf-modal .preview-error a {
+        padding: 10px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .timeline {
+        position: relative;
+        padding-right: 36px;
+      }
+      html[dir="ltr"] .timeline {
+        padding-right: 0;
+        padding-left: 36px;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 10px;
+        width: 2px;
+        background: repeating-linear-gradient(
+          180deg,
+          var(--accent) 0 6px,
+          transparent 6px 12px
+        );
+      }
+      html[dir="ltr"] .timeline::before {
+        right: auto;
+        left: 10px;
+      }
+      .tl-item {
+        position: relative;
+        margin-bottom: 36px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+      }
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        top: 24px;
+        right: -32px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 3px solid var(--accent);
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+      }
+      html[dir="ltr"] .tl-item::before {
+        right: auto;
+        left: -32px;
+      }
+      .tl-item .date {
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        font-family: var(--font-en);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .tl-item h3 {
+        font-size: 1.05rem;
+        margin-bottom: 4px;
+      }
+      .tl-item .company {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .tl-item .company i {
+        color: var(--accent2);
+        font-size: 0.8rem;
+      }
+      .tl-item p {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .slider-wrap {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+      }
+      .slider {
+        display: flex;
+        direction: ltr;
+        transition: transform 0.5s ease;
+        will-change: transform;
+      }
+      .slide {
+        flex: 0 0 100%;
+        min-width: 100%;
+        padding: 40px;
+        direction: rtl;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        text-align: center;
+      }
+      html[lang="en"] .slide {
+        direction: ltr;
+      }
+      .slide .quote-icon {
+        font-size: 2rem;
+        color: var(--accent);
+        margin-bottom: 16px;
+        opacity: 0.5;
+      }
+      .slide .quote {
+        font-size: 1.05rem;
+        font-style: italic;
+        margin-bottom: 20px;
+        line-height: 1.8;
+      }
+      .slide .author {
+        font-weight: 700;
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .slide .role {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+      .slider-nav {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 24px;
+      }
+      .slider-nav button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--border);
+        border: none;
+        cursor: pointer;
+        transition: all 0.25s;
+      }
+      .slider-nav button.active {
+        background: var(--accent);
+        width: 32px;
+        border-radius: 6px;
+      }
+
+      .certs {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 14px;
+      }
+      .cert {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        transition: all 0.3s;
+      }
+      .cert:hover {
+        border-color: var(--accent);
+        transform: translateY(-3px);
+      }
+      .cert .icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        flex-shrink: 0;
+        background: var(--code-bg);
+        border: 1px solid var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        color: var(--accent);
+      }
+      .cert h4 {
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+      }
+      .cert p {
+        color: var(--muted);
+        font-size: 0.75rem;
+        font-family: var(--font-en);
+      }
+      .cert-clickable {
+        width: 100%;
+        color: inherit;
+        text-align: start;
+        font: inherit;
+        cursor: pointer;
+        position: relative;
+        min-width: 0;
+      }
+      .cert-clickable:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+      }
+      .cert-copy {
+        min-width: 0;
+        flex: 1;
+      }
+      .cert-copy h4 {
+        line-height: 1.8;
+      }
+      .cert-open {
+        color: var(--accent);
+        align-self: center;
+        margin-inline-start: auto;
+        flex-shrink: 0;
+      }
+      .cert-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 10050;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(2, 8, 23, 0.88);
+        backdrop-filter: blur(8px);
+      }
+      .cert-modal.open {
+        display: flex;
+      }
+      .cert-modal-dialog {
+        position: relative;
+        width: min(1100px, 96vw);
+        max-height: 94vh;
+        display: flex;
+        flex-direction: column;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 25px 90px rgba(0, 0, 0, 0.45);
+      }
+      .cert-modal-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 18px;
+      }
+      .cert-modal-title {
+        font-weight: 700;
+        line-height: 1.6;
+      }
+      .cert-modal-close {
+        border: 1px solid var(--border);
+        background: var(--code-bg);
+        color: var(--text);
+        border-radius: 9px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+      .cert-modal-image-wrap {
+        padding: 0 14px 14px;
+        overflow: auto;
+        text-align: center;
+      }
+      .cert-modal-image {
+        display: block;
+        max-width: 100%;
+        max-height: calc(94vh - 100px);
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+        border-radius: 8px;
+      }
+      @media (max-width: 560px) {
+        .cert-modal {
+          padding: 10px;
+        }
+        .cert-modal-dialog {
+          width: 100%;
+          max-height: 96vh;
+        }
+        .cert-modal-head {
+          padding: 10px 12px;
+        }
+        .cert-modal-image-wrap {
+          padding: 0 8px 8px;
+        }
+        .cert-clickable {
+          padding: 15px;
+        }
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      @media (max-width: 800px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .contact-item {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        padding: 16px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      .contact-item:hover {
+        border-color: var(--accent);
+      }
+      .contact-item .ic {
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: var(--code-bg);
+        border: 1px solid var(--border);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+      .contact-item .label {
+        color: var(--muted);
+        font-size: 0.75rem;
+        font-family: var(--font-en);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .contact-item .value {
+        font-weight: 600;
+        font-size: 0.9rem;
+        word-break: break-all;
+      }
+      .contact-item .copy-hint {
+        margin-right: auto;
+        color: var(--accent);
+        font-size: 0.7rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-family: var(--font-en);
+      }
+      html[dir="ltr"] .contact-item .copy-hint {
+        margin-right: 0;
+        margin-left: auto;
+      }
+      .contact-item:hover .copy-hint {
+        opacity: 1;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      form input,
+      form textarea {
+        padding: 14px 16px;
+        border-radius: 8px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-family: var(--font-en);
+        font-size: 0.85rem;
+        transition: border-color 0.25s;
+        resize: vertical;
+      }
+      form input:focus,
+      form textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+      form textarea {
+        min-height: 140px;
+      }
+      form .error {
+        border-color: #ef4444 !important;
+      }
+      form .err-msg {
+        color: #ef4444;
+        font-size: 0.75rem;
+        margin-top: -8px;
+        display: none;
+      }
+      form .err-msg.show {
+        display: block;
+      }
+
+      .share {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 30px;
+      }
+      .share a {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s;
+        font-size: 1.2rem;
+      }
+      .share a:hover {
+        background: var(--accent);
+        color: #000;
+        transform: translateY(-4px);
+        border-color: var(--accent);
+      }
+
+      #backTop {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 900;
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #000;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        box-shadow: 0 8px 24px
+          color-mix(in srgb, var(--accent) 50%, transparent);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      html[dir="rtl"] #backTop {
+        right: auto;
+        left: 24px;
+      }
+      #backTop.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      #backTop:hover {
+        transform: translateY(-4px);
+      }
+
+      footer {
+        text-align: center;
+        padding: 50px 20px 30px;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+        font-size: 0.8rem;
+        font-family: var(--font-en);
+      }
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      #settingsToggle {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 1100;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--text);
+        cursor: pointer;
+        font-size: 1.3rem;
+        display: none;
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+      }
+      html[dir="rtl"] #settingsToggle {
+        right: auto;
+        left: 24px;
+      }
+
+      #settingsToggle::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        background: conic-gradient(
+          from 0deg,
+          var(--accent),
+          var(--accent2),
+          var(--accent3),
+          var(--accent)
+        );
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s;
+        animation: rotate 4s linear infinite;
+      }
+      #settingsToggle::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        border-radius: 50%;
+        background: rgba(10, 14, 26, 0.6);
+        backdrop-filter: blur(20px);
+      }
+      :root[data-theme="light"] #settingsToggle::after {
+        background: rgba(248, 250, 252, 0.7);
+      }
+      #settingsToggle i {
+        position: relative;
+        z-index: 1;
+        color: var(--text);
+      }
+      #settingsToggle:hover {
+        transform: scale(1.08);
+        box-shadow: 0 12px 40px
+          color-mix(in srgb, var(--accent) 40%, transparent);
+      }
+      #settingsToggle:hover::before {
+        opacity: 1;
+      }
+      #settingsToggle.active {
+        transform: rotate(90deg) scale(1.05);
+      }
+      #settingsToggle.active i {
+        transform: rotate(-90deg);
+      }
+      #settingsToggle i {
+        transition: transform 0.4s;
+      }
+
+      @keyframes rotate {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      #settingsToggle .pulse-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        opacity: 0;
+        z-index: 0;
+        animation: pulseRing 2s infinite;
+      }
+      @keyframes pulseRing {
+        0% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        100% {
+          transform: scale(1.6);
+          opacity: 0;
+        }
+      }
+
+      #settingsPanel {
+        position: fixed;
+        top: 0;
+        right: -420px;
+        bottom: 0;
+        z-index: 1150;
+        width: 400px;
+        max-width: 100vw;
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(30px) saturate(200%);
+        -webkit-backdrop-filter: blur(30px) saturate(200%);
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow:
+          -20px 0 60px rgba(0, 0, 0, 0.4),
+          inset 1px 0 0 rgba(255, 255, 255, 0.1);
+        transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        display: none;
+        overflow: hidden;
+      }
+      :root[data-theme="light"] #settingsPanel {
+        background: rgba(255, 255, 255, 0.7);
+        border-left: 1px solid rgba(255, 255, 255, 0.9);
+        box-shadow: -20px 0 60px rgba(139, 92, 246, 0.15);
+      }
+      html[dir="rtl"] #settingsPanel {
+        right: auto;
+        left: -420px;
+        border-left: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 20px 0 60px rgba(0, 0, 0, 0.4);
+        transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      :root[data-theme="light"][dir="rtl"] #settingsPanel {
+        border-right: 1px solid rgba(255, 255, 255, 0.9);
+      }
+      #settingsPanel.open {
+        right: 0;
+      }
+      html[dir="rtl"] #settingsPanel.open {
+        right: auto;
+        left: 0;
+      }
+
+      .settings-header {
+        padding: 22px 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--accent) 15%, transparent),
+          color-mix(in srgb, var(--accent2) 15%, transparent)
+        );
+        backdrop-filter: blur(10px);
+        position: relative;
+      }
+      .settings-header::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent),
+          var(--accent2),
+          transparent
+        );
+        opacity: 0.5;
+      }
+      .settings-header h3 {
+        font-size: 1.05rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text);
+        font-family: var(--font-fa);
+      }
+      .settings-header h3 i {
+        color: var(--accent);
+        font-size: 1.1rem;
+      }
+      .settings-close {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: var(--text);
+        cursor: pointer;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+      }
+      .settings-close:hover {
+        background: #ef4444;
+        color: #fff;
+        border-color: #ef4444;
+        transform: rotate(90deg) scale(1.1);
+      }
+
+      .settings-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 22px 24px 28px;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+      }
+      .settings-body::-webkit-scrollbar {
+        width: 6px;
+      }
+      .settings-body::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 3px;
+      }
+      .settings-body::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
+      }
+
+      .settings-group {
+        margin-bottom: 28px;
+      }
+      .settings-group:last-child {
+        margin-bottom: 0;
+      }
+
+      .settings-group-title {
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        font-family: var(--font-fa);
+      }
+      .settings-group-title i {
+        color: var(--accent);
+        font-size: 0.9rem;
+      }
+
+      .color-presets {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .color-preset {
+        aspect-ratio: 1;
+        border-radius: 12px;
+        cursor: pointer;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+      }
+      .color-preset::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, var(--preset-1), var(--preset-2));
+        opacity: 0.9;
+      }
+      .color-preset::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          transparent 50%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .color-preset:hover {
+        transform: translateY(-4px) scale(1.05);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      }
+      .color-preset:hover::before {
+        opacity: 1;
+      }
+      .color-preset.active {
+        border-color: var(--accent);
+        box-shadow:
+          0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent),
+          0 8px 24px color-mix(in srgb, var(--accent) 40%, transparent);
+        transform: scale(1.05);
+      }
+      .color-preset.active::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 1rem;
+        z-index: 2;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        opacity: 1;
+      }
+      .color-preset[data-preset="cyan"] {
+        --preset-1: #22d3ee;
+        --preset-2: #a78bfa;
+      }
+      .color-preset[data-preset="purple"] {
+        --preset-1: #a855f7;
+        --preset-2: #ec4899;
+      }
+      .color-preset[data-preset="green"] {
+        --preset-1: #10b981;
+        --preset-2: #34d399;
+      }
+      .color-preset[data-preset="orange"] {
+        --preset-1: #f59e0b;
+        --preset-2: #ef4444;
+      }
+      .color-preset[data-preset="blue"] {
+        --preset-1: #3b82f6;
+        --preset-2: #06b6d4;
+      }
+      .color-preset[data-preset="pink"] {
+        --preset-1: #ec4899;
+        --preset-2: #f472b6;
+      }
+      .color-preset[data-preset="red"] {
+        --preset-1: #ef4444;
+        --preset-2: #f59e0b;
+      }
+      .color-preset[data-preset="slate"] {
+        --preset-1: #64748b;
+        --preset-2: #334155;
+      }
+
+      .color-picker-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        transition: all 0.3s;
+      }
+      .color-picker-wrap:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .color-picker-wrap label {
+        flex: 1;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-fa);
+      }
+      .color-picker-wrap label i {
+        color: var(--accent);
+        font-size: 0.9rem;
+      }
+      .color-input {
+        width: 46px;
+        height: 38px;
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        background: transparent;
+        padding: 0;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+      .color-input:hover {
+        border-color: var(--accent);
+        transform: scale(1.05);
+      }
+      .color-input::-webkit-color-swatch-wrapper {
+        padding: 0;
+      }
+      .color-input::-webkit-color-swatch {
+        border: none;
+        border-radius: 8px;
+      }
+      .color-input::-moz-color-swatch {
+        border: none;
+        border-radius: 8px;
+      }
+
+      .font-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .font-option {
+        padding: 14px 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .font-option::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--accent) 15%, transparent),
+          color-mix(in srgb, var(--accent2) 15%, transparent)
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .font-option > * {
+        position: relative;
+        z-index: 1;
+      }
+      .font-option:hover {
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      }
+      .font-option:hover::before {
+        opacity: 1;
+      }
+      .font-option.active {
+        border-color: var(--accent);
+        background: color-mix(in srgb, var(--accent) 15%, transparent);
+        box-shadow:
+          0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent),
+          0 8px 24px color-mix(in srgb, var(--accent) 30%, transparent);
+        transform: translateY(-2px);
+      }
+      .font-option.active::before {
+        opacity: 1;
+      }
+      .font-option .font-preview {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: var(--text);
+      }
+      .font-option .font-name {
+        font-size: 0.72rem;
+        color: var(--muted);
+        font-weight: 600;
+        font-family: var(--font-en);
+      }
+      .font-option.active .font-name {
+        color: var(--accent);
+      }
+
+      .settings-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .settings-btn {
+        flex: 1;
+        padding: 13px 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        color: var(--text);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.82rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.3s;
+      }
+      .settings-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+      .settings-btn.primary {
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--accent) 80%, transparent),
+          color-mix(in srgb, var(--accent2) 80%, transparent)
+        );
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 8px 24px
+          color-mix(in srgb, var(--accent) 40%, transparent);
+      }
+      .settings-btn.primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px
+          color-mix(in srgb, var(--accent) 50%, transparent);
+      }
+      .settings-btn.danger:hover {
+        background: #ef4444;
+        color: #fff;
+        border-color: #ef4444;
+        transform: translateY(-2px);
+      }
+
+      #settingsBackdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 1140;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(8px) saturate(120%);
+        -webkit-backdrop-filter: blur(8px) saturate(120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s;
+        display: none;
+      }
+      #settingsBackdrop.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      #settingsToast {
+        position: fixed;
+        bottom: 100px;
+        right: 24px;
+        z-index: 1200;
+        padding: 16px 22px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--text);
+        font-weight: 700;
+        font-size: 0.88rem;
+        box-shadow:
+          0 20px 60px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transform: translateY(120px);
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+        max-width: calc(100vw - 48px);
+        font-family: var(--font-fa);
+      }
+      html[dir="rtl"] #settingsToast {
+        right: auto;
+        left: 24px;
+      }
+      #settingsToast.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      #settingsToast i {
+        color: var(--accent);
+        font-size: 1.1rem;
+        filter: drop-shadow(0 0 8px var(--accent));
+      }
+
+      .live-preview-hint {
+        position: fixed;
+        top: 80px;
+        right: 24px;
+        z-index: 1050;
+        padding: 10px 16px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--text);
+        font-size: 0.78rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.4s;
+        pointer-events: none;
+        font-family: var(--font-fa);
+      }
+      html[dir="rtl"] .live-preview-hint {
+        right: auto;
+        left: 24px;
+      }
+      .live-preview-hint.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .live-preview-hint .dot-live {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #10b981;
+        box-shadow: 0 0 10px #10b981;
+        animation: pulseLive 1.5s infinite;
+      }
+      @keyframes pulseLive {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.3);
+          opacity: 0.7;
+        }
+      }
+
+      @media (max-width: 720px) {
+        header.hero {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 24px;
+          padding-top: 100px;
+        }
+        .avatar {
+          margin: 0 auto;
+          width: 140px;
+          height: 140px;
+          font-size: 3rem;
+        }
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .hero .role {
+          justify-content: center;
+        }
+        .hero .cta {
+          justify-content: center;
+        }
+        .section-head h2 {
+          font-size: 1.6rem;
+        }
+        section {
+          padding: 50px 20px;
+        }
+        #settingsPanel {
+          width: 100%;
+          max-width: 100%;
+        }
+        html[dir="rtl"] #settingsPanel {
+          left: -100%;
+        }
+        #settingsPanel.open {
+          right: 0;
+        }
+        html[dir="rtl"] #settingsPanel.open {
+          left: 0;
+        }
+        #settingsToggle {
+          width: 54px;
+          height: 54px;
+          font-size: 1.2rem;
+          bottom: 20px;
+        }
+        html[dir="rtl"] #settingsToggle {
+          left: 20px;
+          right: auto;
+        }
+        html[dir="ltr"] #settingsToggle {
+          right: 20px;
+          left: auto;
+        }
+        #backTop {
+          bottom: 20px;
+          right: auto;
+          left: 90px;
+          width: 44px;
+          height: 44px;
+        }
+        html[dir="rtl"] #backTop {
+          left: 90px;
+          right: auto;
+        }
+        html[dir="ltr"] #backTop {
+          right: 90px;
+          left: auto;
+        }
+        .modal-files .file-item {
+          flex-wrap: wrap;
+        }
+        .pdf-modal .head strong {
+          font-size: 0.8rem;
+        }
+        .pdf-modal .head .head-dl {
+          padding: 6px 10px;
+          font-size: 0.7rem;
+        }
+      }
+
+      @media print {
+        nav.navbar,
+        .mobile-menu,
+        #backTop,
+        .share,
+        form,
+        #scrollProgress,
+        .hamburger,
+        .modal,
+        .pdf-modal,
+        #settingsToggle,
+        #settingsPanel,
+        #settingsBackdrop,
+        #settingsToast,
+        .live-preview-hint,
+        .file-badge,
+        .load-more-wrap {
+          display: none !important;
+        }
+        body {
+          background: #fff;
+          color: #000;
+        }
+        section {
+          padding: 20px 0;
+          page-break-inside: avoid;
+        }
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        a {
+          color: #000;
+          text-decoration: underline;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scrollProgress"></div>
+
+    <nav class="navbar" id="navbar">
+      <div class="nav-inner">
+        <div
+          class="nav-brand"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          role="button"
+          aria-label="Home"
+        >
+          <img
+            class="brand-logo"
+            src="assets/brand-logo.png"
+            alt="لوگوی شخصی محمدجواد"
+            width="40"
+            height="40"
+          />
+          <span data-fa>محمدجواد</span>
+          <span data-en>Mohammad Javad</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="#home" class="active"
+              ><i class="fas fa-house"></i><span data-fa>خانه</span
+              ><span data-en>Home</span></a
+            >
+          </li>
+          <li>
+            <a href="#skills"
+              ><i class="fas fa-chart-simple"></i><span data-fa>مهارت‌ها</span
+              ><span data-en>Skills</span></a
+            >
+          </li>
+          <li>
+            <a href="#work"
+              ><i class="fas fa-folder-open"></i><span data-fa>پروژه‌ها</span
+              ><span data-en>Projects</span></a
+            >
+          </li>
+          <li>
+            <a href="#exp"
+              ><i class="fas fa-briefcase"></i><span data-fa>تجربه</span
+              ><span data-en>Experience</span></a
+            >
+          </li>
+          <li>
+            <a href="#testi"
+              ><i class="fas fa-comments"></i><span data-fa>نظرات</span
+              ><span data-en>Reviews</span></a
+            >
+          </li>
+          <li>
+            <a href="#contact"
+              ><i class="fas fa-envelope"></i><span data-fa>تماس</span
+              ><span data-en>Contact</span></a
+            >
+          </li>
+        </ul>
+        <div class="nav-actions">
+          <button class="ctrl-btn lang" onclick="toggleLang()">
+            <span data-fa>EN</span><span data-en>فا</span>
+          </button>
+          <button class="ctrl-btn" onclick="toggleTheme()" id="themeBtn">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="ctrl-btn" onclick="openPdf()">
+            <i class="fas fa-file-pdf"></i>
+          </button>
+          <button class="hamburger" onclick="toggleMenu()" id="hamburger">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" onclick="closeMenu()"
+        ><i class="fas fa-house"></i><span data-fa>خانه</span
+        ><span data-en>Home</span></a
+      >
+      <a href="#skills" onclick="closeMenu()"
+        ><i class="fas fa-chart-simple"></i><span data-fa>مهارت‌ها</span
+        ><span data-en>Skills</span></a
+      >
+      <a href="#work" onclick="closeMenu()"
+        ><i class="fas fa-folder-open"></i><span data-fa>پروژه‌ها</span
+        ><span data-en>Projects</span></a
+      >
+      <a href="#exp" onclick="closeMenu()"
+        ><i class="fas fa-briefcase"></i><span data-fa>تجربه</span
+        ><span data-en>Experience</span></a
+      >
+      <a href="#testi" onclick="closeMenu()"
+        ><i class="fas fa-comments"></i><span data-fa>نظرات</span
+        ><span data-en>Reviews</span></a
+      >
+      <a href="#contact" onclick="closeMenu()"
+        ><i class="fas fa-envelope"></i><span data-fa>تماس</span
+        ><span data-en>Contact</span></a
+      >
+    </div>
+
+    <header class="hero" id="home">
+      <div>
+        <span class="hero-tag"
+          ><i class="fas fa-circle"></i><span data-fa>آماده همکاری</span
+          ><span data-en>Available for work</span></span
+        >
+        <h1 data-fa>محمدجواد <em>فرج پور</em></h1>
+        <h1 data-en>Mohammad Javad <em>Farajpour</em></h1>
+        <div class="role">
+          <i class="fas fa-terminal"></i
+          ><span data-fa>توسعه‌دهنده فرانت اند و کارشناس سئو</span
+          ><span data-en>Front-end Developer and SEO Specialist</span>
+        </div>
+        <p class="bio" data-fa>
+          من محمدجواد فرج‌پور هستم؛ توسعه‌دهنده وب و کارشناس سئو. در طراحی و
+          پیاده‌سازی وب‌سایت‌های واکنش‌گرا، شرکتی و فروشگاهی فعالیت می‌کنم و
+          تلاش دارم هر پروژه را با ترکیبی از طراحی کاربردی، کدنویسی اصولی و توجه
+          به نیاز واقعی کاربران پیش ببرم. در توسعه فرانت‌اند با HTML، CSS،
+          JavaScript و React کار می‌کنم و با Bootstrap و Git نیز آشنایی دارم. در
+          حوزه سئو، تحقیق کلمات کلیدی، بهینه‌سازی داخلی و فنی، تولید محتوای
+          هدفمند، لینک‌سازی و بررسی عملکرد سایت با Google Search Console و
+          Google Analytics را دنبال می‌کنم. هدفم ساخت وب‌سایت‌هایی است که علاوه
+          بر ظاهر حرفه‌ای و تجربه کاربری مناسب، ساختار فنی و محتوایی قابل‌قبولی
+          داشته باشند و به دیده‌شدن بهتر کسب‌وکار در فضای آنلاین کمک کنند.
+        </p>
+        <p class="bio" data-en>
+          I’m Mohammad Javad Farajpour, a web developer and SEO specialist
+          focused on building responsive corporate and e-commerce websites. I
+          approach each project with a balance of practical design, clean
+          implementation, and a clear understanding of user needs. My front-end
+          toolkit includes HTML, CSS, JavaScript, and React, with experience
+          using Bootstrap and Git. In SEO, I work with keyword research, on-page
+          and technical optimization, purposeful content, link building, and
+          performance analysis through Google Search Console and Google
+          Analytics. My goal is to create websites that combine a professional
+          user experience with a solid technical and content foundation—and help
+          businesses improve their visibility online.
+        </p>
+        <div class="cta">
+          <a href="#work" class="btn btn-primary"
+            ><i class="fas fa-folder-open"></i
+            ><span data-fa>مشاهده پروژه‌ها</span
+            ><span data-en>View Projects</span></a
+          >
+          <a href="#contact" class="btn btn-ghost"
+            ><i class="fas fa-paper-plane"></i><span data-fa>تماس</span
+            ><span data-en>Contact</span></a
+          >
+        </div>
+      </div>
+      <div class="avatar-wrap">
+        <div class="avatar">
+          <img
+            src="assets/brand-logo.png"
+            alt="محمدجواد فرج پور"
+            onerror="
+              this.style.display = 'none';
+              this.parentElement.innerHTML = '<i class=\'fas fa-code\'></i>';
+            "
+          />
+        </div>
+      </div>
+    </header>
+
+    <section id="skills">
+      <div class="section-head reveal">
+        <div class="kicker">
+          <i class="fas fa-chart-line"></i><span data-fa>توانمندی‌ها</span
+          ><span data-en>Capabilities</span>
+        </div>
+        <h2 data-fa><i class="fas fa-layer-group"></i> ماتریس مهارت‌ها</h2>
+        <h2 data-en><i class="fas fa-layer-group"></i> Skills Matrix</h2>
+      </div>
+      <div class="stats" style="margin-bottom: 40px">
+        <div class="stat reveal">
+          <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+          <div class="num" data-count="3">0</div>
+          <div class="label" data-fa>پروژه طراحی سایت</div>
+          <div class="label" data-en>Website Projects</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+          <div class="num" data-count="4">0</div>
+          <div class="label" data-fa>سال تجربه</div>
+          <div class="label" data-en>Years Experience</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-icon">
+            <i class="fas fa-magnifying-glass-chart"></i>
+          </div>
+          <div class="num" data-count="3">0</div>
+          <div class="label" data-fa>پروژه سئو</div>
+          <div class="label" data-en>SEO Projects</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+          <div class="num" data-count="3">0</div>
+          <div class="label" data-fa>گواهینامه</div>
+          <div class="label" data-en>Certificates</div>
+        </div>
+      </div>
+      <div class="matrix">
+        <div class="skill reveal">
+          <div class="top">
+            <span><i class="fab fa-js"></i> JavaScript</span><span>85%</span>
+          </div>
+          <div class="bar"><i style="width: 85%"></i></div>
+        </div>
+        <div class="skill reveal">
+          <div class="top">
+            <span><i class="fab fa-react"></i> React</span><span>80%</span>
+          </div>
+          <div class="bar"><i style="width: 80%"></i></div>
+        </div>
+        <div class="skill reveal">
+          <div class="top">
+            <span><i class="fab fa-html5"></i> HTML</span><span>90%</span>
+          </div>
+          <div class="bar"><i style="width: 90%"></i></div>
+        </div>
+        <div class="skill reveal">
+          <div class="top">
+            <span><i class="fab fa-css3-alt"></i> CSS</span><span>90%</span>
+          </div>
+          <div class="bar"><i style="width: 90%"></i></div>
+        </div>
+        <div class="skill reveal">
+          <div class="top">
+            <span><i class="fas fa-magnifying-glass"></i> SEO</span
+            ><span>85%</span>
+          </div>
+          <div class="bar"><i style="width: 85%"></i></div>
+        </div>
+        <div class="skill reveal">
+          <div class="top">
+            <span><i class="fab fa-php"></i> PHP</span><span>80%</span>
+          </div>
+          <div class="bar"><i style="width: 80%"></i></div>
+        </div>
+        <div class="skill reveal">
+          <div class="top">
+            <span><i class="fas fa-chart-line"></i> Search Console</span
+            ><span>80%</span>
+          </div>
+          <div class="bar"><i style="width: 80%"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="section-head reveal">
+        <div class="kicker">
+          <i class="fas fa-folder-open"></i><span data-fa>پورتفولیو</span
+          ><span data-en>Portfolio</span>
+        </div>
+        <h2 data-fa><i class="fas fa-diagram-project"></i> پروژه‌های منتخب</h2>
+        <h2 data-en>
+          <i class="fas fa-diagram-project"></i> Selected Projects
+        </h2>
+      </div>
+      <div class="filters reveal">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fas fa-grip"></i><span data-fa>همه</span
+          ><span data-en>All</span>
+        </button>
+        <button class="filter-btn" data-filter="frontend">
+          <i class="fas fa-desktop"></i><span data-fa>فرانت‌اند</span
+          ><span data-en>Frontend</span>
+        </button>
+        <button class="filter-btn" data-filter="seo">
+          <i class="fas fa-magnifying-glass-chart"></i><span data-fa>سئو</span
+          ><span data-en>SEO</span>
+        </button>
+        <button class="filter-btn" data-filter="wordpress">
+          <i class="fab fa-wordpress"></i><span data-fa>وردپرس</span
+          ><span data-en>WordPress</span>
+        </button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <div
+          class="proj-card reveal"
+          data-cat="frontend"
+          data-title-fa="مجموعه قالب‌های رزومه Resuma"
+          data-title-en="Resuma — Resume Templates Collection"
+          data-desc-fa="طراحی و پیاده‌سازی مجموعه‌ای از قالب‌های رزومه شخصی با ظاهرهای متفاوت برای توسعه‌دهندگان، طراحان، فریلنسرها و مدیران. قالب‌ها دو‌زبانه و واکنش‌گرا هستند و قابلیت‌هایی مانند حالت روشن و تاریک، نمایش رزومه PDF و بخش‌های قابل شخصی‌سازی را ارائه می‌کنند."
+          data-desc-en="A collection of personal resume templates designed for developers, designers, freelancers and executives. The templates are bilingual and responsive, with light/dark themes, PDF resume viewing and customizable sections."
+          data-client-fa="پروژه مستقل"
+          data-client-en="Independent Project"
+          data-year="نمونه‌کار مستقل"
+          data-role-fa="طراحی و توسعه فرانت‌اند"
+          data-role-en="Frontend Design & Development"
+          data-tags="HTML,CSS,JavaScript,Responsive UI,Bilingual"
+          data-color="linear-gradient(135deg,#6366f1,#06b6d4)"
+          data-icon="fas fa-file-user"
+          data-live="https://mohammadjavadf.github.io/Resuma/"
+        >
+          <div class="head">
+            <div class="lang-dot"></div>
+            <h3>Resuma — Resume Templates</h3>
+          </div>
+          <div class="body">
+            <p data-fa>
+              مجموعه قالب‌های رزومه دو‌زبانه با طراحی‌های متنوع، حالت روشن و
+              تاریک و نمایش PDF
+            </p>
+            <p data-en>
+              Bilingual resume templates with varied layouts, light/dark mode
+              and PDF viewing
+            </p>
+            <div class="tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span
+              ><span>Responsive</span>
+            </div>
+          </div>
+          <div class="stats-row">
+            <span
+              ><i class="fas fa-layer-group"></i
+              ><span data-fa>۶ قالب مستقل</span
+              ><span data-en>6 Templates</span></span
+            ><span
+              ><i class="fas fa-language"></i><span data-fa>دو‌زبانه</span
+              ><span data-en>Bilingual</span></span
+            >
+          </div>
+        </div>
+
+        <div
+          class="proj-card reveal"
+          data-cat="frontend"
+          data-title-fa="منوی دیجیتال رستوران"
+          data-title-en="Interactive Restaurant Menu"
+          data-desc-fa="طراحی منوی دیجیتال رستوران با رابط کاربری واکنش‌گرا و پنل مدیریت فرانت‌اند. مدیر می‌تواند غذاها و دسته‌بندی‌ها را مدیریت کند، تصاویر را تغییر دهد و اطلاعات رستوران را شخصی‌سازی کند. در نسخه فعلی، داده‌ها در مرورگر و با localStorage ذخیره می‌شوند."
+          data-desc-en="A responsive digital restaurant menu with a frontend management panel. Managers can manage dishes and categories, update images and customize restaurant details. In this version, data is stored in the browser using localStorage."
+          data-client-fa="پروژه مستقل"
+          data-client-en="Independent Project"
+          data-year="نمونه‌کار مستقل"
+          data-role-fa="طراحی و توسعه فرانت‌اند"
+          data-role-en="Frontend Design & Development"
+          data-tags="HTML,CSS,JavaScript,localStorage,Responsive UI"
+          data-color="linear-gradient(135deg,#f97316,#ea580c)"
+          data-icon="fas fa-utensils"
+          data-live="https://mohammadjavadf.github.io/restaurant_menu/"
+        >
+          <div class="head">
+            <div class="lang-dot"></div>
+            <h3>Restaurant Menu</h3>
+          </div>
+          <div class="body">
+            <p data-fa>
+              منوی آنلاین غذا با دسته‌بندی‌ها و پنل مدیریت برای ویرایش آیتم‌ها و
+              اطلاعات رستوران
+            </p>
+            <p data-en>
+              An online food menu with categories and a management panel for
+              editing items and restaurant details
+            </p>
+            <div class="tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span
+              ><span>localStorage</span>
+            </div>
+          </div>
+          <div class="stats-row">
+            <span
+              ><i class="fas fa-sliders"></i><span data-fa>پنل مدیریت</span
+              ><span data-en>Admin Panel</span></span
+            ><span
+              ><i class="fas fa-mobile-screen"></i><span data-fa>واکنش‌گرا</span
+              ><span data-en>Responsive</span></span
+            >
+          </div>
+        </div>
+
+        <div
+          class="proj-card reveal"
+          data-cat="frontend"
+          data-title-fa="AuthKit — قالب‌های ورود و ثبت‌نام"
+          data-title-en="AuthKit — Login & Registration UI Kit"
+          data-desc-fa="مجموعه‌ای از رابط‌های کاربری ورود، ثبت‌نام و بازیابی رمز عبور با تم‌های متناسب با کاربردهای مختلف، از جمله وب‌سایت‌های برنامه‌نویسی، فروشگاهی، شرکتی و خبری. تمرکز پروژه بر تجربه کاربری، طراحی واکنش‌گرا، حالت تاریک و تعاملات رابط کاربری است؛ دموها به‌عنوان نمونه فرانت‌اند ارائه شده‌اند."
+          data-desc-en="A collection of login, registration and password-recovery interfaces tailored to programming, e-commerce, corporate and news websites. The project focuses on user experience, responsive layouts, dark mode and interface interactions; demos are presented as frontend samples."
+          data-client-fa="پروژه مستقل"
+          data-client-en="Independent Project"
+          data-year="نمونه‌کار مستقل"
+          data-role-fa="طراحی و توسعه رابط کاربری"
+          data-role-en="UI Design & Frontend Development"
+          data-tags="HTML,CSS,JavaScript,Authentication UI,Dark Mode"
+          data-color="linear-gradient(135deg,#0f766e,#14b8a6)"
+          data-icon="fas fa-shield-halved"
+          data-live="https://mohammadjavadf.github.io/login/"
+        >
+          <div class="head">
+            <div class="lang-dot"></div>
+            <h3>AuthKit — Authentication UI</h3>
+          </div>
+          <div class="body">
+            <p data-fa>
+              رابط‌های مدرن ورود و ثبت‌نام با چند دموی موضوعی، طراحی واکنش‌گرا و
+              حالت تاریک
+            </p>
+            <p data-en>
+              Modern login and registration interfaces with themed demos,
+              responsive design and dark mode
+            </p>
+            <div class="tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span
+              ><span>Dark Mode</span>
+            </div>
+          </div>
+          <div class="stats-row">
+            <span
+              ><i class="fas fa-layer-group"></i
+              ><span data-fa>چند دموی آماده</span
+              ><span data-en>Multiple Demos</span></span
+            ><span
+              ><i class="fas fa-shield-halved"></i
+              ><span data-fa>رابط احراز هویت</span
+              ><span data-en>Auth UI</span></span
+            >
+          </div>
+        </div>
+
+        <div
+          class="proj-card reveal"
+          data-cat="seo"
+          data-title-fa="استراتژی سئو ماه اول | چفت تجهیز"
+          data-title-en="Month-One SEO Strategy | Cheft Tajhiz"
+          data-desc-fa="تهیه گزارش استراتژی سئوی ۳۰ روزه برای سایت چفت تجهیز در حوزه تجهیزات آشپزخانه صنعتی. این پروژه شامل تعیین اهداف، برنامه اجرایی روزانه، تحقیق کلمات کلیدی تجاری و محصولی، برنامه تولید محتوا، بهینه‌سازی صفحات تجاری، لینک‌سازی داخلی، بررسی سئوی فنی و تعریف شاخص‌های قابل‌اندازه‌گیری است. فایل اصلی گزارش PDF در دسترس دانلود است و پیش‌نمایش آن نیز در همین نمونه‌کار قابل مشاهده است."
+          data-desc-en="A 30-day SEO strategy report for Cheft Tajhiz, a commercial kitchen equipment website. It covers objectives, a daily execution plan, commercial and product keyword strategy, content planning, commercial-page optimization, internal linking, technical SEO and measurable targets. The original PDF is available to download, with an online preview."
+          data-client-fa="چفت تجهیز"
+          data-client-en="Cheft Tajhiz"
+          data-year="استراتژی ۳۰ روزه"
+          data-role-fa="استراتژی سئو و برنامه‌ریزی محتوا"
+          data-role-en="SEO Strategy & Content Planning"
+          data-tags="SEO,Technical SEO,Keyword Research,Content Strategy,Internal Linking"
+          data-color="linear-gradient(135deg,#0f766e,#22d3ee)"
+          data-icon="fas fa-magnifying-glass-chart"
+          data-github="projects/downloads/cheftajhiz-seo-month1-report.pdf"
+        >
+          <div class="head">
+            <div class="lang-dot"></div>
+            <h3>Cheft Tajhiz — SEO Strategy</h3>
+          </div>
+          <div class="body">
+            <p data-fa>
+              گزارش استراتژی سئو ۳۰ روزه؛ از بررسی فنی و تحقیق کلمات کلیدی تا
+              برنامه محتوا و شاخص‌های ارزیابی
+            </p>
+            <p data-en>
+              A 30-day SEO roadmap covering technical checks, keyword strategy,
+              content planning and KPIs
+            </p>
+            <div class="tags">
+              <span>SEO Strategy</span><span>Technical SEO</span
+              ><span>Content Plan</span>
+            </div>
+          </div>
+          <div class="stats-row">
+            <span
+              ><i class="fas fa-file-pdf"></i><span data-fa>گزارش PDF</span
+              ><span data-en>PDF Report</span></span
+            ><span
+              ><i class="fas fa-calendar-days"></i
+              ><span data-fa>برنامه ۳۰ روزه</span
+              ><span data-en>30-Day Plan</span></span
+            >
+          </div>
+        </div>
+<div
+  class="proj-card reveal"
+  data-cat="seo"
+  data-title-fa="استراتژی سه‌ماهه سئو اسطوره‌سازان"
+  data-title-en="Ostoorehsazan 3-Month SEO Strategy"
+  data-desc-fa="تدوین استراتژی سه‌ماهه شامل ممیزی فنی، تحقیق کلمات کلیدی، بهینه‌سازی صفحات خدمات و برنامه محتوایی."
+  data-desc-en="A three-month SEO strategy covering technical SEO, keyword research, service-page optimization and content planning."
+  data-client-fa="اسطوره‌سازان"
+  data-client-en="Ostoorehsazan"
+  data-year="2026"
+  data-role-fa="استراتژیست سئو"
+  data-role-en="SEO Strategist"
+  data-tags="SEO Strategy,Technical SEO,Keyword Research,Content Strategy"
+  data-color="linear-gradient(135deg,#0ea5e9,#6366f1)"
+  data-icon="fas fa-magnifying-glass-chart"
+  data-live="projects/seo/ostourehsazan-seo-strategy.html"
+  data-github="projects/seo/ostourehsazan-seo-strategy.pdf"
+  data-secondary-label-fa="دریافت گزارش PDF"
+  data-secondary-label-en="Download PDF Report"
+>
+  <div class="head">
+    <div class="lang-dot"></div>
+    <h3>Ostoorehsazan SEO</h3>
+  </div>
+
+  <div class="body">
+    <p data-fa>استراتژی سه‌ماهه سئو برای جذب هدفمند مخاطب و مشتری</p>
+    <p data-en>Three-month SEO strategy focused on qualified traffic and conversions</p>
+
+    <div class="tags">
+      <span>SEO</span>
+      <span>Keyword Research</span>
+      <span>Content Strategy</span>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <span><i class="fas fa-calendar-week"></i> 12 weeks</span>
+    <span><i class="fas fa-file-pdf"></i> PDF</span>
+  </div>
+</div>
+        <div
+          class="proj-card reveal"
+          data-cat="seo"
+          data-title-fa="تحقیق کلمات کلیدی | Digiatex"
+          data-title-en="Keyword Research | Digiatex"
+          data-desc-fa="فایل تحقیق کلمات کلیدی شامل ۶۰ عبارت و ستون‌های حجم جست‌وجوی ماهانه تقریبی، نیت جست‌وجو، نوع کلمه و صفحه هدف پیشنهادی است. برای دسترسی سریع‌تر، پیش‌نمایش آنلاین جدول آماده شده و فایل اصلی Excel نیز قابل دانلود است. حجم جست‌وجوها مطابق فایل ورودی، تقریبی هستند."
+          data-desc-en="A keyword research spreadsheet containing 60 terms and fields for estimated monthly search volume, search intent, keyword type and recommended target page. An online table preview is available alongside the original downloadable Excel workbook. Search volumes are approximate as labeled in the source file."
+          data-client-fa="Digiatex"
+          data-client-en="Digiatex"
+          data-year="تحقیق و دسته‌بندی کلمات"
+          data-role-fa="تحقیق کلمات کلیدی و نقشه صفحات"
+          data-role-en="Keyword Research & Page Mapping"
+          data-tags="SEO,Keyword Research,Search Intent,Content Mapping,Excel"
+          data-color="linear-gradient(135deg,#4338ca,#a855f7)"
+          data-icon="fas fa-table-list"
+          data-live="projects/seo/digiatex-keyword-research.html"
+          data-github="projects/downloads/digiatex-keyword-research.xlsx"
+        >
+          <div class="head">
+            <div class="lang-dot"></div>
+            <h3>Digiatex — Keyword Research</h3>
+          </div>
+          <div class="body">
+            <p data-fa>
+              تحقیق و خوشه‌بندی ۶۰ کلمه کلیدی همراه با حجم جست‌وجو، نیت کاربر و
+              صفحه هدف پیشنهادی
+            </p>
+            <p data-en>
+              Research and classification of 60 keywords with search volume,
+              intent and target-page mapping
+            </p>
+            <div class="tags">
+              <span>Keyword Research</span><span>Search Intent</span
+              ><span>Excel</span>
+            </div>
+          </div>
+          <div class="stats-row">
+            <span
+              ><i class="fas fa-table"></i><span data-fa>۶۰ کلمه کلیدی</span
+              ><span data-en>60 Keywords</span></span
+            ><span
+              ><i class="fas fa-file-excel"></i><span data-fa>فایل Excel</span
+              ><span data-en>Excel Workbook</span></span
+            >
+          </div>
+        </div>
+
+        <div
+          class="proj-card reveal"
+          data-cat="frontend"
+          data-title-fa="NEXORA — فروشگاه اینترنتی کالای دیجیتال"
+          data-title-en="NEXORA — Digital Products E-commerce UI"
+          data-desc-fa="طراحی و پیاده‌سازی رابط کاربری یک فروشگاه اینترنتی کالای دیجیتال با صفحه اصلی، فروشگاه، جست‌وجوی زنده، فیلتر و مرتب‌سازی محصولات، صفحه جزئیات محصول، سبد خرید، مجله و صفحات درباره ما و تماس با ما. رابط کاربری واکنش‌گراست و برای نمایش تجربه طراحی فرانت‌اند و پیاده‌سازی تعاملات سمت کاربر ارائه شده است. این نسخه نمایشی است؛ پرداخت، حساب کاربری و ثبت سفارش واقعی به بک‌اند متصل نیستند."
+          data-desc-en="A responsive digital-products storefront UI featuring a homepage, product catalog, live search, filters and sorting, product details, cart, blog, about and contact pages. This is a frontend demonstration; real checkout, accounts and order processing are not connected to a backend."
+          data-client-fa="پروژه مستقل"
+          data-client-en="Independent Project"
+          data-year="نمونه‌کار مستقل"
+          data-role-fa="طراحی و توسعه فرانت‌اند فروشگاه"
+          data-role-en="E-commerce Frontend Design & Development"
+          data-tags="HTML,CSS,JavaScript,E-commerce,Responsive UI,Product Search,Shopping Cart"
+          data-color="linear-gradient(135deg,#08142d,#2563eb)"
+          data-icon="fas fa-store"
+          data-live="https://mohammadjavadf.github.io/NEXORA-store/"
+        >
+          <div class="head">
+            <div class="lang-dot"></div>
+            <h3>NEXORA — Digital Store</h3>
+          </div>
+          <div class="body">
+            <p data-fa>
+              فروشگاه مدرن کالای دیجیتال با جست‌وجو و فیلتر محصولات، جزئیات
+              کالا، سبد خرید و مجله
+            </p>
+            <p data-en>
+              A modern digital store with product search and filters, product
+              details, cart and blog
+            </p>
+            <div class="tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span
+              ><span>E-commerce UI</span>
+            </div>
+          </div>
+          <div class="stats-row">
+            <span
+              ><i class="fas fa-box-open"></i><span data-fa>۶۴ محصول نمونه</span
+              ><span data-en>64 Demo Products</span></span
+            ><span
+              ><i class="fas fa-mobile-screen"></i><span data-fa>واکنش‌گرا</span
+              ><span data-en>Responsive</span></span
+            >
+          </div>
+        </div>
+
+        <div
+          class="proj-card reveal"
+          data-cat="wordpress"
+          data-title-fa="حساب‌یار — افزونه حسابداری وردپرس"
+          data-title-en="Hesabyar — WordPress Accounting Plugin"
+          data-desc-fa="معرفی افزونه حساب‌یار با تمرکز بر مدیریت مالی کسب‌وکار؛ صفحه معرفی ارسالی شامل توضیحات محصول و قابلیت‌های معرفی‌شده است. برای بررسی دقیق قابلیت‌ها و کد افزونه، فایل ZIP خود افزونه نیز باید در دسترس باشد."
+          data-desc-en="Hesabyar is presented as a WordPress accounting plugin for business finance management. The supplied file is its product introduction page; the plugin ZIP is needed for a full code and feature review."
+          data-client-fa="پروژه مستقل"
+          data-client-en="Independent Project"
+          data-year="افزونه وردپرس"
+          data-role-fa="توسعه افزونه و معرفی محصول"
+          data-role-en="WordPress Plugin Development & Product Presentation"
+          data-tags="WordPress,PHP,Accounting,Plugin,Finance Management"
+          data-color="linear-gradient(135deg,#667eea,#764ba2)"
+          data-icon="fas fa-calculator"
+          data-live="https://mohammadjavadf.github.io/hesabyar/"
+          data-github=""
+        >
+          <div class="head">
+            <div class="lang-dot"></div>
+            <h3>حساب‌یار — Hesabyar</h3>
+          </div>
+          <div class="body">
+            <p data-fa>
+              افزونه حسابداری وردپرس برای مدیریت مالی کسب‌وکار؛ همراه با صفحه
+              معرفی محصول
+            </p>
+            <p data-en>
+              WordPress accounting plugin for business finance management, with
+              a product introduction page
+            </p>
+            <div class="tags">
+              <span>WordPress</span><span>PHP</span><span>Accounting</span>
+            </div>
+          </div>
+          <div class="stats-row">
+            <span
+              ><i class="fas fa-file-lines"></i><span data-fa>معرفی محصول</span
+              ><span data-en>Product Overview</span></span
+            ><span
+              ><i class="fas fa-puzzle-piece"></i
+              ><span data-fa>افزونه وردپرس</span
+              ><span data-en>WordPress Plugin</span></span
+            >
+          </div>
+        </div>
+
+        <div
+          class="proj-card reveal"
+          data-cat="wordpress"
+          data-title-fa="نبض نیوز — قالب مجله خبری وردپرس"
+          data-title-en="Nabd News — WordPress News Theme"
+          data-desc-fa="قالب مجله خبری فارسی با ساختار راست‌چین و واکنش‌گرا، صفحات استاندارد وردپرس، حالت روشن و تاریک و ابزارک‌های اختصاصی برای Elementor رایگان. دمو و فایل معرفی قالب جداگانه در دسترس هستند و فایل ZIP قالب نیز برای نصب ارائه شده است."
+          data-desc-en="A Persian RTL responsive news-magazine theme with standard WordPress templates, light/dark mode and custom widgets for free Elementor. The live demo, theme overview page, and installable theme ZIP are included."
+          data-client-fa="پروژه مستقل"
+          data-client-en="Independent Project"
+          data-year="نسخه ۳.۲.۰ طبق راهنمای قالب"
+          data-role-fa="توسعه قالب وردپرس"
+          data-role-en="WordPress Theme Development"
+          data-tags="WordPress,PHP,Elementor,RTL,Responsive,Theme Development"
+          data-color="linear-gradient(135deg,#10172a,#e11d48)"
+          data-icon="fab fa-wordpress"
+          data-live="https://mohammadjavadf.github.io/nabd-news/"
+        >
+          <div class="head">
+            <div class="lang-dot"></div>
+            <h3>Nabd News — WordPress Theme</h3>
+          </div>
+          <div class="body">
+            <p data-fa>
+              قالب خبری فارسی راست‌چین با پشتیبانی Elementor رایگان، حالت تاریک
+              و طراحی واکنش‌گرا
+            </p>
+            <p data-en>
+              A Persian RTL news theme with free Elementor support, dark mode
+              and responsive layouts
+            </p>
+            <div class="tags">
+              <span>WordPress</span><span>PHP</span><span>Elementor</span
+              ><span>RTL</span>
+            </div>
+          </div>
+          <div class="stats-row">
+            <span
+              ><i class="fas fa-mobile-screen"></i><span data-fa>واکنش‌گرا</span
+              ><span data-en>Responsive</span></span
+            ><span
+              ><i class="fas fa-download"></i><span data-fa>فایل نصب ZIP</span
+              ><span data-en>Installable ZIP</span></span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="load-more-wrap" id="loadMoreWrap">
+        <button
+          type="button"
+          class="load-more-btn"
+          id="loadMoreBtn"
+          onclick="loadMoreProjects()"
+        >
+          <i class="fas fa-chevron-down"></i>
+          <span data-fa>نمایش پروژه‌های بیشتر</span>
+          <span data-en>Show More Projects</span>
+        </button>
+        <div
+          class="load-more-counter"
+          id="loadMoreCounter"
+          aria-live="polite"
+        ></div>
+      </div>
+    </section>
+
+    <section id="exp">
+      <div class="section-head reveal">
+        <div class="kicker">
+          <i class="fas fa-road"></i><span data-fa>مسیر حرفه‌ای</span
+          ><span data-en>Career Path</span>
+        </div>
+        <h2 data-fa><i class="fas fa-briefcase"></i> تجربه‌های شغلی</h2>
+        <h2 data-en><i class="fas fa-briefcase"></i> Work Experience</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="date">
+            <i class="fas fa-calendar"></i>
+            <span>1401 - اکنون / 2022 - Present</span>
+          </div>
+          <h3 data-fa>کارشناس سئو</h3>
+          <h3 data-en>SEO Specialist</h3>
+          <div class="company">
+            <i class="fas fa-building"></i><span data-fa>شرکت طراحان برتر</span
+            ><span data-en>Tarahan Bartar Company</span>
+          </div>
+          <p data-fa>
+            برنامه‌ریزی و اجرای فعالیت‌های سئو با تمرکز بر بهبود ساختار صفحات،
+            تحقیق و خوشه‌بندی کلمات کلیدی، بهینه‌سازی محتوای هدفمند و بررسی
+            مشکلات فنی سایت. تحلیل وضعیت صفحات و پیگیری شاخص‌های عملکرد برای
+            شناسایی فرصت‌های رشد ارگانیک و ارائه پیشنهادهای اجرایی به تیم.
+          </p>
+          <p data-en>
+            Planned and carried out SEO activities focused on page structure,
+            keyword research and clustering, content optimization, and
+            identifying technical issues. Reviewed page performance and
+            organic-search metrics to find growth opportunities and provide
+            actionable recommendations to the team.
+          </p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="date">
+            <i class="fas fa-calendar"></i>
+            <span>1401 - اکنون / 2022 - Present</span>
+          </div>
+          <h3 data-fa>برنامه نویس فرانت اند</h3>
+          <h3 data-en>Front-End Developer</h3>
+          <div class="company">
+            <i class="fas fa-building"></i
+            ><span data-fa>فریلنسری / Freelance</span>
+          </div>
+          <p data-fa>
+            طراحی و پیاده‌سازی رابط‌های کاربری و صفحات واکنش‌گرا برای پروژه‌های
+            مستقل؛ تبدیل نیازهای پروژه به صفحات قابل استفاده، بهبود نمایش در
+            اندازه‌های مختلف صفحه و رفع ایرادهای ظاهری و تعاملی.
+          </p>
+          <p data-en>
+            Designed and implemented responsive interfaces for independent
+            projects, translating project requirements into usable pages,
+            improving layouts across screen sizes, and fixing visual and
+            interaction issues.
+          </p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="date">
+            <i class="fas fa-calendar"></i>
+            <span>1402 - اکنون / 2023 - Present</span>
+          </div>
+          <h3 data-fa>کارشناس سئو</h3>
+          <h3 data-en>SEO Specialist</h3>
+          <div class="company">
+            <i class="fas fa-building"></i
+            ><span data-fa>شرکت سئوماتیک / Seomatic Company</span>
+          </div>
+          <p data-fa>
+            همکاری در پروژه‌های سئوی سایت‌های فروشگاهی و شرکتی؛ انجام تحقیق
+            کلمات کلیدی، بررسی صفحات و ساختار لینک‌سازی داخلی، پیشنهاد بهبود
+            محتوا و پیگیری وضعیت عملکرد ارگانیک بر اساس داده‌های در دسترس.
+          </p>
+          <p data-en>
+            Contributed to SEO for e-commerce and corporate websites through
+            keyword research, page and internal-link reviews, content
+            improvement recommendations, and monitoring organic performance
+            using available data.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testi">
+      <div class="section-head reveal">
+        <div class="kicker">
+          <i class="fas fa-quote-left"></i><span data-fa>نظرات</span
+          ><span data-en>Testimonials</span>
+        </div>
+        <h2 data-fa><i class="fas fa-comments"></i> همکاران چه می‌گویند</h2>
+        <h2 data-en><i class="fas fa-comments"></i> What Colleagues Say</h2>
+      </div>
+      <div class="slider-wrap reveal">
+        <div class="slider" id="slider">
+          <div class="slide">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="quote" data-fa>
+              «محمدجواد یکی از بهترین توسعه‌دهندگانی است که باهاش کار کردم.»
+            </p>
+            <p class="quote" data-en>
+              "Mohammad Javad is one of the best developers I've worked with."
+            </p>
+            <div class="author">
+              <i class="fas fa-user-tie"></i><span>محمد کریمی</span>
+            </div>
+            <div class="role" data-fa> کارفرما پروژه NEXORA</div>
+            <div class="role" data-en>CTO</div>
+          </div>
+          <div class="slide">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="quote" data-fa>
+              «تسلط محمدجواد بر سئو و برنامه‌نویسی فوق‌العاده است.»
+            </p>
+            <p class="quote" data-en>
+              "Mohammad Javad's mastery of SEO and programming is outstanding."
+            </p>
+            <div class="author">
+              <i class="fas fa-user-tie"></i><span>نگار احمدی</span>
+            </div>
+            <div class="role" data-fa> مدیر عامل شرکت طراحان برتر</div>
+            <div class="role" data-en>Product Manager</div>
+          </div>
+          <div class="slide">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="quote" data-fa>
+              «سرعت، کیفیت و تعهد. سه ویژگی که محمدجواد رو متمایز می‌کنه.»
+            </p>
+            <p class="quote" data-en>"Speed, quality and commitment."</p>
+            <div class="author">
+              <i class="fas fa-user-tie"></i><span>حدیث کشتکار</span>
+            </div>
+            <div class="role" data-fa>منابع انسانی شرکت سئو ماتیک</div>
+            <div class="role" data-en>HR</div>
+          </div>
+        </div>
+        <div class="slider-nav" id="sliderNav"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head reveal">
+        <div class="kicker">
+          <i class="fas fa-trophy"></i><span data-fa>افتخارات</span
+          ><span data-en>Achievements</span>
+        </div>
+        <h2 data-fa><i class="fas fa-certificate"></i> گواهینامه‌ها</h2>
+        <h2 data-en><i class="fas fa-certificate"></i> Certificates</h2>
+      </div>
+      <div class="certs">
+        <button
+          type="button"
+          class="cert cert-clickable reveal"
+          data-cert-image="assets/certificates/daneshjooyar-seo-certificate.jpg"
+          data-cert-title-fa="گواهینامه پایان دوره آموزش سئو — دانشجویار"
+          data-cert-title-en="SEO Training Completion Certificate — Daneshjooyar"
+          aria-haspopup="dialog"
+        >
+          <div class="icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+          <div class="cert-copy">
+            <h4 data-fa>گواهینامه پایان دوره آموزش سئو</h4>
+            <h4 data-en>SEO Training Completion Certificate</h4>
+            <p data-fa>دانشجویار · برای مشاهده کلیک کنید</p>
+            <p data-en>Daneshjooyar · Click to view</p>
+          </div>
+          <span class="cert-open"
+            ><i class="fas fa-up-right-and-down-left-from-center"></i
+          ></span>
+        </button>
+        <div class="cert reveal">
+          <div class="icon"><i class="fas fa-laptop-code"></i></div>
+          <div>
+            <h4 data-fa>مدرک برنامه‌نویسی فرانت‌اند</h4>
+            <h4 data-en>Front-End Development Certificate</h4>
+            <p>1401</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="cert cert-clickable reveal"
+          data-cert-image="assets/certificates/seomatic-seo-master-certificate.jpg"
+          data-cert-title-fa="گواهینامه SEO Master — سئوماتیک"
+          data-cert-title-en="SEO Master Certification — Seomatic"
+          aria-haspopup="dialog"
+        >
+          <div class="icon"><i class="fas fa-award"></i></div>
+          <div class="cert-copy">
+            <h4 data-fa>گواهینامه SEO Master</h4>
+            <h4 data-en>SEO Master Certification</h4>
+            <p data-fa>سئوماتیک · برای مشاهده کلیک کنید</p>
+            <p data-en>Seomatic · Click to view</p>
+          </div>
+          <span class="cert-open"
+            ><i class="fas fa-up-right-and-down-left-from-center"></i
+          ></span>
+        </button>
+      </div>
+    </section>
+
+    <div
+      class="cert-modal"
+      id="certificateModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="certificateModalTitle"
+      aria-hidden="true"
+    >
+      <div class="cert-modal-dialog">
+        <div class="cert-modal-head">
+          <div class="cert-modal-title" id="certificateModalTitle">
+            گواهینامه
+          </div>
+          <button
+            type="button"
+            class="cert-modal-close"
+            id="certificateModalClose"
+            aria-label="Close certificate"
+          >
+            <i class="fas fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cert-modal-image-wrap">
+          <img
+            class="cert-modal-image"
+            id="certificateModalImage"
+            src=""
+            alt="Certificate preview"
+          />
+        </div>
+      </div>
+    </div>
+
+    <section id="contact">
+      <div class="section-head reveal">
+        <div class="kicker">
+          <i class="fas fa-envelope-open-text"></i><span data-fa>ارتباط</span
+          ><span data-en>Get in touch</span>
+        </div>
+        <h2 data-fa><i class="fas fa-comments"></i> بیایید صحبت کنیم</h2>
+        <h2 data-en><i class="fas fa-comments"></i> Let's Talk</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div
+            class="contact-item"
+            onclick="copyText('mmja143@gmail.com', this)"
+          >
+            <div class="ic"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="label"><i class="fas fa-tag"></i> Email</div>
+              <div class="value">mmja143@gmail.com</div>
+            </div>
+            <div class="copy-hint" data-fa><i class="fas fa-copy"></i> کپی</div>
+            <div class="copy-hint" data-en>
+              <i class="fas fa-copy"></i> Copy
+            </div>
+          </div>
+          <div class="contact-item" onclick="copyText('09025787349', this)">
+            <div class="ic"><i class="fas fa-mobile-screen"></i></div>
+            <div>
+              <div class="label">
+                <i class="fas fa-tag"></i> <span data-fa>تلفن</span
+                ><span data-en>Phone</span>
+              </div>
+              <div class="value">09025787349</div>
+            </div>
+            <div class="copy-hint" data-fa><i class="fas fa-copy"></i> کپی</div>
+            <div class="copy-hint" data-en>
+              <i class="fas fa-copy"></i> Copy
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ic"><i class="fas fa-location-dot"></i></div>
+            <div>
+              <div class="label">
+                <i class="fas fa-tag"></i> <span data-fa>موقعیت</span
+                ><span data-en>Location</span>
+              </div>
+              <div class="value" data-fa>ایران</div>
+              <div class="value" data-en>Iran</div>
+            </div>
+          </div>
+        </div>
+        <form
+          id="contactForm"
+          class="reveal"
+          onsubmit="return submitForm(event);"
+        >
+          <input
+            type="text"
+            id="fName"
+            data-fa-placeholder="نام شما"
+            data-en-placeholder="Your Name"
+          />
+          <div class="err-msg" id="errName" data-fa>
+            لطفاً نام خود را وارد کنید
+          </div>
+          <div class="err-msg" id="errNameEn" data-en>
+            Please enter your name
+          </div>
+          <input
+            type="email"
+            id="fEmail"
+            data-fa-placeholder="ایمیل"
+            data-en-placeholder="Email"
+          />
+          <div class="err-msg" id="errEmail" data-fa>ایمیل معتبر وارد کنید</div>
+          <div class="err-msg" id="errEmailEn" data-en>Enter a valid email</div>
+          <textarea
+            id="fMsg"
+            data-fa-placeholder="پیام شما..."
+            data-en-placeholder="Your message..."
+          ></textarea>
+          <div class="err-msg" id="errMsg" data-fa>
+            پیام نمی‌تواند خالی باشد
+          </div>
+          <div class="err-msg" id="errMsgEn" data-en>
+            Message cannot be empty
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i><span data-fa>ارسال پیام</span
+            ><span data-en>Send Message</span>
+          </button>
+        </form>
+      </div>
+      <div class="share reveal">
+        <a
+          href="https://github.com/Mohammadjavadf"
+          target="_blank"
+          rel="noopener"
+          title="GitHub"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a
+          href="https://t.me/Mohamad_javad_F"
+          target="_blank"
+          rel="noopener"
+          title="Telegram"
+          ><i class="fab fa-telegram"></i
+        ></a>
+      </div>
+    </section>
+
+    <div class="modal" id="projectModal">
+      <div class="modal-box">
+        <div class="modal-hero" id="modalHero">
+          <i id="modalHeroIcon" class="fas fa-project-diagram"></i>
+          <button class="close-x" onclick="closeProject()">
+            <i class="fas fa-xmark"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2 id="modalTitle">Title</h2>
+          <div class="meta">
+            <span
+              ><i class="fas fa-user"></i> <span id="modalClient"></span
+            ></span>
+            <span
+              ><i class="fas fa-calendar"></i> <span id="modalYear"></span
+            ></span>
+            <span
+              ><i class="fas fa-user-tag"></i> <span id="modalRole"></span
+            ></span>
+          </div>
+          <p id="modalDesc"></p>
+          <div class="tags" id="modalTags"></div>
+
+          <div class="modal-files" id="modalFiles" style="display: none"></div>
+
+          <div class="modal-actions">
+            <a
+              href="#"
+              id="modalLive"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+              ><i class="fas fa-up-right-from-square"></i
+              ><span data-fa>مشاهده آنلاین</span
+              ><span data-en>Live Demo</span></a
+            >
+            <a
+              href="#"
+              id="modalGithub"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-ghost"
+              download
+              ><i class="fas fa-download"></i
+              ><span data-fa>دریافت فایل پروژه</span
+              ><span data-en>Download Project Files</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pdf-modal" id="pdfModal">
+      <div class="inner">
+        <div class="head">
+          <strong
+            ><i class="fas fa-file-pdf" id="pdfModalIcon"></i
+            ><span id="pdfModalTitle">پیش‌نمایش PDF</span></strong
+          >
+          <div class="head-actions">
+            <a id="pdfDownloadBtn" href="#" download class="head-dl">
+              <i class="fas fa-download"></i>
+              <span data-fa>دانلود</span><span data-en>Download</span>
+            </a>
+            <button onclick="closePdf()"><i class="fas fa-xmark"></i></button>
+          </div>
+        </div>
+        <iframe id="pdfFrame" src=""></iframe>
+        <div class="preview-error" id="previewError" style="display: none">
+          <i class="fas fa-triangle-exclamation"></i>
+          <p data-fa>این فایل قابل پیش‌نمایش در مرورگر نیست.</p>
+          <p data-en>This file cannot be previewed in the browser.</p>
+          <a id="previewErrorDl" href="#" download>
+            <i class="fas fa-download"></i>
+            <span data-fa>دانلود فایل</span><span data-en>Download File</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <button
+      id="backTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <button
+      id="settingsToggle"
+      onclick="toggleSettings()"
+      title="Settings"
+      aria-label="تنظیمات"
+    >
+      <span class="pulse-ring"></span>
+      <i class="fas fa-sliders-h"></i>
+    </button>
+
+    <div id="settingsBackdrop" onclick="toggleSettings()"></div>
+
+    <div class="live-preview-hint" id="livePreviewHint">
+      <span class="dot-live"></span>
+      <span data-fa>پیش‌نمایش زنده فعال است</span>
+      <span data-en>Live preview active</span>
+    </div>
+
+    <aside id="settingsPanel" role="dialog" aria-label="پنل تنظیمات">
+      <div class="settings-header">
+        <h3>
+          <i class="fas fa-sliders-h"></i><span data-fa>تنظیمات ظاهری</span
+          ><span data-en>Appearance</span>
+        </h3>
+        <button class="settings-close" onclick="toggleSettings()">
+          <i class="fas fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="settings-body">
+        <div class="settings-group">
+          <div class="settings-group-title">
+            <i class="fas fa-swatchbook"></i>
+            <span data-fa>پالت آماده</span><span data-en>Presets</span>
+          </div>
+          <div class="color-presets">
+            <div
+              class="color-preset active"
+              data-preset="cyan"
+              onclick="setPreset('cyan', this)"
+              title="Cyan/Purple"
+            ></div>
+            <div
+              class="color-preset"
+              data-preset="purple"
+              onclick="setPreset('purple', this)"
+              title="Purple/Pink"
+            ></div>
+            <div
+              class="color-preset"
+              data-preset="green"
+              onclick="setPreset('green', this)"
+              title="Green"
+            ></div>
+            <div
+              class="color-preset"
+              data-preset="orange"
+              onclick="setPreset('orange', this)"
+              title="Orange"
+            ></div>
+            <div
+              class="color-preset"
+              data-preset="blue"
+              onclick="setPreset('blue', this)"
+              title="Blue"
+            ></div>
+            <div
+              class="color-preset"
+              data-preset="pink"
+              onclick="setPreset('pink', this)"
+              title="Pink"
+            ></div>
+            <div
+              class="color-preset"
+              data-preset="red"
+              onclick="setPreset('red', this)"
+              title="Red"
+            ></div>
+            <div
+              class="color-preset"
+              data-preset="slate"
+              onclick="setPreset('slate', this)"
+              title="Slate"
+            ></div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <div class="settings-group-title">
+            <i class="fas fa-palette"></i>
+            <span data-fa>رنگ‌های دلخواه</span
+            ><span data-en>Custom Colors</span>
+          </div>
+          <div class="color-picker-wrap">
+            <label
+              ><i class="fas fa-star"></i><span data-fa>رنگ اصلی</span
+              ><span data-en>Primary</span></label
+            >
+            <input
+              type="color"
+              id="pickAccent"
+              class="color-input"
+              value="#22d3ee"
+              oninput="applyCustomColor()"
+            />
+          </div>
+          <div class="color-picker-wrap">
+            <label
+              ><i class="fas fa-star-half-stroke"></i
+              ><span data-fa>رنگ دوم</span><span data-en>Secondary</span></label
+            >
+            <input
+              type="color"
+              id="pickAccent2"
+              class="color-input"
+              value="#a78bfa"
+              oninput="applyCustomColor()"
+            />
+          </div>
+          <div class="color-picker-wrap">
+            <label
+              ><i class="fas fa-star-of-life"></i><span data-fa>رنگ سوم</span
+              ><span data-en>Tertiary</span></label
+            >
+            <input
+              type="color"
+              id="pickAccent3"
+              class="color-input"
+              value="#34d399"
+              oninput="applyCustomColor()"
+            />
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <div class="settings-group-title">
+            <i class="fas fa-font"></i>
+            <span data-fa>فونت فارسی</span><span data-en>Persian Font</span>
+          </div>
+          <div class="font-options">
+            <div
+              class="font-option active"
+              onclick="setFont('fa', 'Vazirmatn', this)"
+            >
+              <div
+                class="font-preview"
+                style="font-family: &quot;Vazirmatn&quot;, sans-serif"
+              >
+                آ ب پ
+              </div>
+              <div class="font-name">Vazirmatn</div>
+            </div>
+            <div class="font-option" onclick="setFont('fa', 'Vazir', this)">
+              <div
+                class="font-preview"
+                style="font-family: &quot;Vazir&quot;, sans-serif"
+              >
+                آ ب پ
+              </div>
+              <div class="font-name">Vazir</div>
+            </div>
+            <div class="font-option" onclick="setFont('fa', 'Sahel', this)">
+              <div
+                class="font-preview"
+                style="font-family: &quot;Sahel&quot;, sans-serif"
+              >
+                آ ب پ
+              </div>
+              <div class="font-name">Sahel</div>
+            </div>
+            <div class="font-option" onclick="setFont('fa', 'Samim', this)">
+              <div
+                class="font-preview"
+                style="font-family: &quot;Samim&quot;, sans-serif"
+              >
+                آ ب پ
+              </div>
+              <div class="font-name">Samim</div>
+            </div>
+            <div class="font-option" onclick="setFont('fa', 'Shabnam', this)">
+              <div
+                class="font-preview"
+                style="font-family: &quot;Shabnam&quot;, sans-serif"
+              >
+                آ ب پ
+              </div>
+              <div class="font-name">Shabnam</div>
+            </div>
+            <div class="font-option" onclick="setFont('fa', 'Estedad', this)">
+              <div
+                class="font-preview"
+                style="font-family: &quot;Estedad&quot;, sans-serif"
+              >
+                آ ب پ
+              </div>
+              <div class="font-name">Estedad</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <div class="settings-group-title">
+            <i class="fas fa-font"></i>
+            <span data-fa>فونت انگلیسی</span><span data-en>English Font</span>
+          </div>
+          <div class="font-options">
+            <div
+              class="font-option active"
+              onclick="setFont('en', 'JetBrains Mono', this)"
+            >
+              <div
+                class="font-preview"
+                style="font-family: &quot;JetBrains Mono&quot;, monospace"
+              >
+                Aa
+              </div>
+              <div class="font-name">JetBrains Mono</div>
+            </div>
+            <div class="font-option" onclick="setFont('en', 'Inter', this)">
+              <div
+                class="font-preview"
+                style="font-family: &quot;Inter&quot;, sans-serif"
+              >
+                Aa
+              </div>
+              <div class="font-name">Inter</div>
+            </div>
+            <div class="font-option" onclick="setFont('en', 'Poppins', this)">
+              <div
+                class="font-preview"
+                style="font-family: &quot;Poppins&quot;, sans-serif"
+              >
+                Aa
+              </div>
+              <div class="font-name">Poppins</div>
+            </div>
+            <div class="font-option" onclick="setFont('en', 'Roboto', this)">
+              <div
+                class="font-preview"
+                style="font-family: &quot;Roboto&quot;, sans-serif"
+              >
+                Aa
+              </div>
+              <div class="font-name">Roboto</div>
+            </div>
+            <div
+              class="font-option"
+              onclick="setFont('en', 'Playfair Display', this)"
+            >
+              <div
+                class="font-preview"
+                style="font-family: &quot;Playfair Display&quot;, serif"
+              >
+                Aa
+              </div>
+              <div class="font-name">Playfair</div>
+            </div>
+            <div class="font-option" onclick="setFont('en', 'Fira Code', this)">
+              <div
+                class="font-preview"
+                style="font-family: &quot;Fira Code&quot;, monospace"
+              >
+                Aa
+              </div>
+              <div class="font-name">Fira Code</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-actions">
+          <button class="settings-btn danger" onclick="resetSettings()">
+            <i class="fas fa-rotate-left"></i><span data-fa>بازنشانی</span
+            ><span data-en>Reset</span>
+          </button>
+          <button class="settings-btn primary" onclick="closeAndSave()">
+            <i class="fas fa-check"></i><span data-fa>ذخیره</span
+            ><span data-en>Save</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <div id="settingsToast">
+      <i class="fas fa-check-circle"></i>
+      <span id="toastMsg">تنظیمات ذخیره شد</span>
+    </div>
+
+    <script>
+      /* ============ LANGUAGE ============ */
+      let lang = localStorage.getItem("lang") || "fa";
+      function applyLang() {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
+        document.querySelectorAll("[data-fa]").forEach((el) => {
+          el.style.display = lang === "fa" ? "" : "none";
+        });
+        document.querySelectorAll("[data-en]").forEach((el) => {
+          el.style.display = lang === "en" ? "" : "none";
+        });
+        document.querySelectorAll("[data-fa-placeholder]").forEach((el) => {
+          el.placeholder =
+            lang === "fa" ? el.dataset.faPlaceholder : el.dataset.enPlaceholder;
+        });
+      }
+      function toggleLang() {
+        lang = lang === "fa" ? "en" : "fa";
+        localStorage.setItem("lang", lang);
+        applyLang();
+        if (currentProject) renderProject(currentProject);
+        if (window.refreshCertificateModalLanguage)
+          window.refreshCertificateModalLanguage();
+        updateProjectsView(false);
+      }
+      applyLang();
+
+      /* ============ THEME ============ */
+      let theme = localStorage.getItem("theme") || "dark";
+      function applyTheme() {
+        document.documentElement.setAttribute("data-theme", theme);
+        const btn = document.getElementById("themeBtn");
+        btn.innerHTML =
+          theme === "dark"
+            ? '<i class="fas fa-sun"></i>'
+            : '<i class="fas fa-moon"></i>';
+      }
+      function toggleTheme() {
+        theme = theme === "dark" ? "light" : "dark";
+        localStorage.setItem("theme", theme);
+        applyTheme();
+      }
+      applyTheme();
+
+      /* ============ SETTINGS PANEL ============ */
+      const PRESETS = {
+        cyan: { accent: "#22d3ee", accent2: "#a78bfa", accent3: "#34d399" },
+        purple: { accent: "#a855f7", accent2: "#ec4899", accent3: "#8b5cf6" },
+        green: { accent: "#10b981", accent2: "#34d399", accent3: "#06b6d4" },
+        orange: { accent: "#f59e0b", accent2: "#ef4444", accent3: "#fb923c" },
+        blue: { accent: "#3b82f6", accent2: "#06b6d4", accent3: "#6366f1" },
+        pink: { accent: "#ec4899", accent2: "#f472b6", accent3: "#c084fc" },
+        red: { accent: "#ef4444", accent2: "#f59e0b", accent3: "#ec4899" },
+        slate: { accent: "#64748b", accent2: "#334155", accent3: "#94a3b8" },
+      };
+
+      function loadSettings() {
+        const saved = localStorage.getItem("resume_settings");
+        if (!saved) return;
+        try {
+          const s = JSON.parse(saved);
+          if (s.accent) {
+            document.documentElement.style.setProperty("--accent", s.accent);
+            document.documentElement.style.setProperty("--accent2", s.accent2);
+            document.documentElement.style.setProperty("--accent3", s.accent3);
+            document.getElementById("pickAccent").value = s.accent;
+            document.getElementById("pickAccent2").value = s.accent2;
+            document.getElementById("pickAccent3").value = s.accent3;
+          }
+          if (s.fontFa) {
+            document.documentElement.style.setProperty(
+              "--font-fa",
+              `'${s.fontFa}', sans-serif`,
+            );
+          }
+          if (s.fontEn) {
+            document.documentElement.style.setProperty(
+              "--font-en",
+              `'${s.fontEn}', sans-serif`,
+            );
+          }
+          if (s.preset) {
+            document.querySelectorAll(".color-preset").forEach((p) => {
+              p.classList.toggle("active", p.dataset.preset === s.preset);
+            });
+          }
+          if (s.fontFa) {
+            document.querySelectorAll(".font-option").forEach((el) => {
+              const onclick = el.getAttribute("onclick") || "";
+              if (
+                onclick.includes("setFont('fa'") &&
+                onclick.includes(s.fontFa)
+              ) {
+                el.classList.add("active");
+              } else if (onclick.includes("setFont('fa'")) {
+                el.classList.remove("active");
+              }
+            });
+          }
+          if (s.fontEn) {
+            document.querySelectorAll(".font-option").forEach((el) => {
+              const onclick = el.getAttribute("onclick") || "";
+              if (
+                onclick.includes("setFont('en'") &&
+                onclick.includes(s.fontEn)
+              ) {
+                el.classList.add("active");
+              } else if (onclick.includes("setFont('en'")) {
+                el.classList.remove("active");
+              }
+            });
+          }
+        } catch (e) {
+          console.warn("Settings load error", e);
+        }
+      }
+
+      function setPreset(name, el) {
+        const p = PRESETS[name];
+        if (!p) return;
+        document
+          .querySelectorAll(
+            ".stat-icon, .lang-dot, .brand-icon, .hero-tag i, .kicker i",
+          )
+          .forEach((icon, idx) => {
+            icon.style.transition = "all .3s cubic-bezier(.4,0,.2,1)";
+            icon.style.transform = "scale(1.3) rotate(15deg)";
+            setTimeout(
+              () => {
+                icon.style.transform = "";
+              },
+              300 + idx * 20,
+            );
+          });
+        document.documentElement.style.setProperty("--accent", p.accent);
+        document.documentElement.style.setProperty("--accent2", p.accent2);
+        document.documentElement.style.setProperty("--accent3", p.accent3);
+        document.getElementById("pickAccent").value = p.accent;
+        document.getElementById("pickAccent2").value = p.accent2;
+        document.getElementById("pickAccent3").value = p.accent3;
+        document
+          .querySelectorAll(".color-preset")
+          .forEach((x) => x.classList.remove("active"));
+        el.classList.add("active");
+        saveSettings(name);
+        showToast(lang === "fa" ? "🎨 پالت اعمال شد" : "🎨 Preset applied");
+        showLivePreview();
+      }
+
+      function applyCustomColor() {
+        const a1 = document.getElementById("pickAccent").value;
+        const a2 = document.getElementById("pickAccent2").value;
+        const a3 = document.getElementById("pickAccent3").value;
+        document.documentElement.style.setProperty("--accent", a1);
+        document.documentElement.style.setProperty("--accent2", a2);
+        document.documentElement.style.setProperty("--accent3", a3);
+        document
+          .querySelectorAll(".color-preset")
+          .forEach((x) => x.classList.remove("active"));
+        saveSettings(null);
+        showLivePreview();
+      }
+
+      function setFont(type, fontName, el) {
+        if (type === "fa") {
+          document.documentElement.style.setProperty(
+            "--font-fa",
+            `'${fontName}', sans-serif`,
+          );
+        } else {
+          document.documentElement.style.setProperty(
+            "--font-en",
+            `'${fontName}', sans-serif`,
+          );
+        }
+        const siblings = el.parentElement.querySelectorAll(".font-option");
+        siblings.forEach((s) => s.classList.remove("active"));
+        el.classList.add("active");
+        saveSettings(null);
+        showToast(
+          lang === "fa"
+            ? `✓ فونت ${fontName} اعمال شد`
+            : `✓ Font ${fontName} applied`,
+        );
+        showLivePreview();
+      }
+
+      function saveSettings(presetName) {
+        const current = JSON.parse(
+          localStorage.getItem("resume_settings") || "{}",
+        );
+        const settings = {
+          accent: document.getElementById("pickAccent").value,
+          accent2: document.getElementById("pickAccent2").value,
+          accent3: document.getElementById("pickAccent3").value,
+          fontFa: getActiveFont("fa") || current.fontFa,
+          fontEn: getActiveFont("en") || current.fontEn,
+          preset:
+            presetName ||
+            document.querySelector(".color-preset.active")?.dataset.preset ||
+            null,
+        };
+        localStorage.setItem("resume_settings", JSON.stringify(settings));
+      }
+
+      function getActiveFont(type) {
+        const active = document.querySelector(
+          `.font-option.active[onclick*="setFont('${type}'"]`,
+        );
+        if (!active) return null;
+        const onclick = active.getAttribute("onclick");
+        const match = onclick.match(/setFont\('[^']+','([^']+)'/);
+        return match ? match[1] : null;
+      }
+
+      function resetSettings() {
+        if (
+          !confirm(
+            lang === "fa"
+              ? "آیا مطمئن هستید؟ همه تنظیمات بازنشانی می‌شوند."
+              : "Are you sure? All settings will be reset.",
+          )
+        )
+          return;
+        document
+          .querySelectorAll(".stat-icon, .lang-dot, .brand-icon")
+          .forEach((icon, idx) => {
+            icon.style.transition = "all .3s cubic-bezier(.4,0,.2,1)";
+            icon.style.transform = "rotate(360deg) scale(.7)";
+            setTimeout(
+              () => {
+                icon.style.transform = "";
+              },
+              400 + idx * 20,
+            );
+          });
+        localStorage.removeItem("resume_settings");
+        document.documentElement.style.removeProperty("--accent");
+        document.documentElement.style.removeProperty("--accent2");
+        document.documentElement.style.removeProperty("--accent3");
+        document.documentElement.style.removeProperty("--font-fa");
+        document.documentElement.style.removeProperty("--font-en");
+        document.getElementById("pickAccent").value = "#3b82f6";
+        document.getElementById("pickAccent2").value = "#06b6d4";
+        document.getElementById("pickAccent3").value = "#6366f1";
+        document.querySelectorAll(".color-preset").forEach((p) => {
+          p.classList.toggle("active", p.dataset.preset === "blue");
+        });
+        document.querySelectorAll(".font-option").forEach((f) => {
+          const onclick = f.getAttribute("onclick") || "";
+          if (onclick.includes("'Poppins'") || onclick.includes("'Sahel'")) {
+            f.classList.add("active");
+          } else {
+            f.classList.remove("active");
+          }
+        });
+        showToast(lang === "fa" ? "↺ تنظیمات بازنشانی شد" : "↺ Settings reset");
+        showLivePreview();
+      }
+
+      function toggleSettings() {
+        const panel = document.getElementById("settingsPanel");
+        const backdrop = document.getElementById("settingsBackdrop");
+        const toggle = document.getElementById("settingsToggle");
+        const isOpen = panel.classList.contains("open");
+        panel.classList.toggle("open");
+        backdrop.classList.toggle("show");
+        toggle.classList.toggle("active");
+        document.body.style.overflow = isOpen ? "" : "hidden";
+        if (!isOpen) {
+          showLivePreview();
+        }
+      }
+
+      function closeAndSave() {
+        saveSettings(null);
+        toggleSettings();
+        showToast(lang === "fa" ? "✓ تنظیمات ذخیره شد" : "✓ Settings saved");
+      }
+
+      let toastTimer;
+      function showToast(msg) {
+        const toast = document.getElementById("settingsToast");
+        document.getElementById("toastMsg").textContent = msg;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("show"), 2500);
+      }
+
+      let hintTimer;
+      function showLivePreview() {
+        const hint = document.getElementById("livePreviewHint");
+        hint.classList.add("show");
+        clearTimeout(hintTimer);
+        hintTimer = setTimeout(() => hint.classList.remove("show"), 3000);
+      }
+
+      loadSettings();
+
+      /* ============ MOBILE MENU ============ */
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        const btn = document.getElementById("hamburger");
+        menu.classList.toggle("open");
+        const isOpen = menu.classList.contains("open");
+        btn.innerHTML = isOpen
+          ? '<i class="fas fa-xmark"></i>'
+          : '<i class="fas fa-bars"></i>';
+      }
+      function closeMenu() {
+        document.getElementById("mobileMenu").classList.remove("open");
+        document.getElementById("hamburger").innerHTML =
+          '<i class="fas fa-bars"></i>';
+      }
+
+      /* ============ PREVIEW (پیش‌نمایش فایل) ============ */
+      function isPreviewableUrl(url) {
+        const clean = url.split("?")[0].split("#")[0];
+        const ext = clean.split(".").pop().toLowerCase();
+        return [
+          "pdf",
+          "png",
+          "jpg",
+          "jpeg",
+          "webp",
+          "gif",
+          "svg",
+          "txt",
+        ].includes(ext);
+      }
+
+      function previewFile(url, name) {
+        const modal = document.getElementById("pdfModal");
+        const frame = document.getElementById("pdfFrame");
+        const errBox = document.getElementById("previewError");
+        const dlBtn = document.getElementById("pdfDownloadBtn");
+        const errDl = document.getElementById("previewErrorDl");
+
+        // عنوان
+        document.getElementById("pdfModalTitle").textContent =
+          name || "Preview";
+
+        // دکمه دانلود هدر
+        url = new URL(url, document.baseURI).href;
+        dlBtn.href = url;
+        dlBtn.setAttribute("download", "");
+
+        // دکمه دانلود در حالت خطا
+        errDl.href = url;
+        errDl.setAttribute("download", "");
+
+        // آیکون
+        const ext = url.split("?")[0].split(".").pop().toLowerCase();
+        const iconEl = document.getElementById("pdfModalIcon");
+        if (["pdf"].includes(ext)) {
+          iconEl.className = "fas fa-file-pdf";
+        } else if (["png", "jpg", "jpeg", "webp", "gif", "svg"].includes(ext)) {
+          iconEl.className = "fas fa-file-image";
+        } else {
+          iconEl.className = "fas fa-file";
+        }
+
+        // پاکسازی قبلی
+        frame.src = "";
+        frame.style.display = "none";
+        errBox.style.display = "none";
+
+        if (isPreviewableUrl(url)) {
+          // PDF و تصویر: پیش‌نمایش با iframe
+          frame.style.display = "";
+          frame.src = url;
+        } else {
+          // فرمت غیرقابل پیش‌نمایش: نمایش خطا + دکمه دانلود
+          errBox.style.display = "flex";
+        }
+
+        modal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closePdf() {
+        document.getElementById("pdfModal").classList.remove("open");
+        const frame = document.getElementById("pdfFrame");
+        frame.src = "";
+        frame.style.display = "";
+        document.getElementById("previewError").style.display = "none";
+        document.body.style.overflow = "";
+      }
+
+      /* ============ PDF RESUME ============ */
+      function openPdf() {
+        const file =
+          lang === "fa" ? "assets/resume-fa.pdf" : "assets/resume-en.pdf";
+        previewFile(file, lang === "fa" ? "رزومه PDF" : "PDF Resume");
+      }
+
+      /* ============ PROJECT MODAL ============ */
+      let currentProject = null;
+
+      document.querySelectorAll(".proj-card").forEach((item) => {
+        item.addEventListener("click", (e) => {
+          // اگر کلیک روی دکمه دانلود/پیش‌نمایش داخل کارت بود، مودال باز نشه
+          if (e.target.closest("a,button")) return;
+          openProject(item);
+        });
+      });
+
+      function openProject(item) {
+        currentProject = item;
+        renderProject(item);
+        document.getElementById("projectModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      /* آیکون فایل بر اساس پسوند */
+      function getFileIcon(ext) {
+        ext = (ext || "").toLowerCase();
+        if (["pdf"].includes(ext)) return "pdf";
+        if (["xls", "xlsx", "csv"].includes(ext)) return "excel";
+        if (["doc", "docx"].includes(ext)) return "word";
+        if (["zip", "rar", "7z"].includes(ext)) return "zipper";
+        if (["png", "jpg", "jpeg", "webp", "gif", "svg"].includes(ext))
+          return "image";
+        if (["txt", "md"].includes(ext)) return "lines";
+        if (["ppt", "pptx"].includes(ext)) return "powerpoint";
+        return "arrow-down";
+      }
+
+      /* ساخت ردیف فایل (DOM-based برای امنیت و جلوگیری از باگ کوتیشن) */
+      function buildFileRow(file, isFa) {
+        const url = new URL(file.url, document.baseURI).href;
+        const fname = isFa ? file.nameFa || "فایل" : file.nameEn || "File";
+        const type = (file.type || url.split(".").pop() || "").toLowerCase();
+        const typeUp = type.toUpperCase();
+        const size = file.size ? ` • ${file.size}` : "";
+        const isPrev = isPreviewableUrl(url);
+
+        const row = document.createElement("div");
+        row.className = "file-item";
+
+        // آیکون
+        const icon = document.createElement("i");
+        icon.className = "fas fa-file-" + getFileIcon(type);
+        row.appendChild(icon);
+
+        // متادیتا
+        const meta = document.createElement("div");
+        meta.className = "file-meta";
+        const strong = document.createElement("strong");
+        strong.textContent = fname;
+        const span = document.createElement("span");
+        span.textContent = typeUp + size;
+        meta.appendChild(strong);
+        meta.appendChild(span);
+        row.appendChild(meta);
+
+        // دکمه‌ها
+        const actions = document.createElement("div");
+        actions.className = "file-actions";
+
+        if (isPrev) {
+          const pv = document.createElement("button");
+          pv.type = "button";
+          pv.className = "pv-btn";
+          pv.title = isFa ? "پیش‌نمایش" : "Preview";
+          pv.innerHTML = '<i class="fas fa-eye"></i>';
+          pv.addEventListener("click", (ev) => {
+            ev.stopPropagation();
+            previewFile(url, fname);
+          });
+          actions.appendChild(pv);
+        } else if (type === "html" || type === "htm") {
+          const pv = document.createElement("a");
+          pv.className = "pv-btn";
+          pv.href = url;
+          pv.target = "_blank";
+          pv.rel = "noopener";
+          pv.title = isFa ? "باز کردن فایل" : "Open file";
+          pv.innerHTML = '<i class="fas fa-up-right-from-square"></i>';
+          pv.addEventListener("click", (ev) => ev.stopPropagation());
+          actions.appendChild(pv);
+        }
+
+        const dl = document.createElement("a");
+        dl.className = "dl-btn";
+        dl.href = url;
+        dl.setAttribute("download", "");
+        dl.title = isFa ? "دانلود" : "Download";
+        dl.innerHTML = '<i class="fas fa-download"></i>';
+        dl.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+        });
+        actions.appendChild(dl);
+
+        row.appendChild(actions);
+        return row;
+      }
+
+      function renderProject(item) {
+        const d = item.dataset;
+        const isFa = lang === "fa";
+        document.getElementById("modalHero").style.background = d.color;
+        document.getElementById("modalHeroIcon").className =
+          d.icon || "fas fa-project-diagram";
+        document.getElementById("modalTitle").textContent = isFa
+          ? d.titleFa
+          : d.titleEn;
+        document.getElementById("modalClient").textContent = isFa
+          ? d.clientFa
+          : d.clientEn;
+        document.getElementById("modalYear").textContent = d.year;
+        document.getElementById("modalRole").textContent = isFa
+          ? d.roleFa
+          : d.roleEn;
+        document.getElementById("modalDesc").textContent = isFa
+          ? d.descFa
+          : d.descEn;
+        const tags = d.tags
+          .split(",")
+          .map((t) => `<span>${t.trim()}</span>`)
+          .join("");
+        document.getElementById("modalTags").innerHTML = tags;
+        const liveButton = document.getElementById("modalLive");
+        const downloadButton = document.getElementById("modalGithub");
+        liveButton.href = d.live ? new URL(d.live, document.baseURI).href : "#";
+        liveButton.style.display = d.live ? "inline-flex" : "none";
+        liveButton.setAttribute("target", "_blank");
+        liveButton.setAttribute("rel", "noopener noreferrer");
+        downloadButton.href = d.github
+          ? new URL(d.github, document.baseURI).href
+          : "#";
+        downloadButton.style.display = d.github ? "inline-flex" : "none";
+
+        // ===== بخش فایل‌ها =====
+        const filesBox = document.getElementById("modalFiles");
+        filesBox.innerHTML = "";
+        filesBox.style.display = "none";
+
+        const rows = [];
+
+        // تک فایل
+        if (d.file && d.file.trim() !== "") {
+          rows.push(
+            buildFileRow(
+              {
+                url: d.file,
+                nameFa: d.fileNameFa || "دانلود فایل",
+                nameEn: d.fileNameEn || "Download File",
+                type: d.fileType || d.file.split(".").pop(),
+                size: d.fileSize || "",
+              },
+              isFa,
+            ),
+          );
+        }
+
+        // چند فایل
+        if (d.files && d.files.trim() !== "") {
+          try {
+            const arr = JSON.parse(d.files);
+            arr.forEach((f) => rows.push(buildFileRow(f, isFa)));
+          } catch (e) {
+            console.warn("data-files JSON invalid", e);
+          }
+        }
+
+        if (rows.length) {
+          const title = document.createElement("div");
+          title.className = "files-title";
+          title.innerHTML =
+            '<i class="fas fa-download"></i>' +
+            (isFa ? "فایل‌های قابل دانلود" : "Downloadable Files");
+          filesBox.appendChild(title);
+          rows.forEach((r) => filesBox.appendChild(r));
+          filesBox.style.display = "flex";
+        }
+      }
+
+      function closeProject() {
+        document.getElementById("projectModal").classList.remove("open");
+        document.body.style.overflow = "";
+        currentProject = null;
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          if (document.getElementById("pdfModal").classList.contains("open")) {
+            closePdf();
+          } else if (
+            document.getElementById("projectModal").classList.contains("open")
+          ) {
+            closeProject();
+          } else {
+            closeMenu();
+            if (
+              document
+                .getElementById("settingsPanel")
+                .classList.contains("open")
+            )
+              toggleSettings();
+          }
+        }
+      });
+
+      /* ============ BADGES ON CARDS ============ */
+      document.querySelectorAll(".proj-card").forEach((card) => {
+        const d = card.dataset;
+        const hasFile =
+          (d.file && d.file.trim()) || (d.files && d.files.trim());
+        if (hasFile) {
+          const badge = document.createElement("div");
+          badge.className = "file-badge";
+          badge.title =
+            lang === "fa" ? "فایل قابل دانلود دارد" : "Has downloadable file";
+          badge.innerHTML = '<i class="fas fa-download"></i>';
+          card.appendChild(badge);
+        }
+      });
+
+      /* ============ SCROLL ============ */
+      window.addEventListener("scroll", () => {
+        const h = document.documentElement;
+        const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+        document.getElementById("scrollProgress").style.width = pct + "%";
+        document
+          .getElementById("backTop")
+          .classList.toggle("show", h.scrollTop > 400);
+        document
+          .getElementById("navbar")
+          .classList.toggle("scrolled", h.scrollTop > 20);
+        updateActiveNav();
+      });
+      function updateActiveNav() {
+        const sections = document.querySelectorAll("section[id], header[id]");
+        const scrollPos = window.scrollY + 120;
+        let active = "home";
+        sections.forEach((sec) => {
+          if (sec.offsetTop <= scrollPos) active = sec.id;
+        });
+        document
+          .querySelectorAll(".nav-links a, .mobile-menu a")
+          .forEach((a) => {
+            const href = a.getAttribute("href");
+            if (href === "#" + active) a.classList.add("active");
+            else a.classList.remove("active");
+          });
+      }
+
+      /* ============ REVEAL ============ */
+      const revealObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              revealObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObs.observe(el));
+
+      /* ============ COUNTER ============ */
+      const counterObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              const el = e.target;
+              const target = +el.dataset.count;
+              let cur = 0;
+              const step = Math.max(1, Math.floor(target / 60));
+              const timer = setInterval(() => {
+                cur += step;
+                if (cur >= target) {
+                  cur = target;
+                  clearInterval(timer);
+                }
+                el.textContent = cur + (target >= 100 ? "+" : "");
+              }, 20);
+              counterObs.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.5 },
+      );
+      document
+        .querySelectorAll("[data-count]")
+        .forEach((el) => counterObs.observe(el));
+
+      /* ============ SKILL BARS ============ */
+      const skillObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.querySelectorAll(".bar i").forEach((bar) => {
+                const w = bar.style.width;
+                bar.style.width = "0";
+                setTimeout(() => {
+                  bar.style.width = w;
+                }, 100);
+              });
+              skillObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+      document.querySelectorAll(".matrix").forEach((m) => skillObs.observe(m));
+
+      /* ================================================
+   📦 LOAD MORE — مدیریت تعداد نمایش پروژه‌ها
+================================================ */
+      const PROJECTS_PER_PAGE = 6;
+      let visibleCount = PROJECTS_PER_PAGE;
+      let activeFilter = "all";
+
+      const projectsGrid = document.getElementById("projectsGrid");
+      const loadMoreBtn = document.getElementById("loadMoreBtn");
+      const loadMoreWrap = document.getElementById("loadMoreWrap");
+      const loadMoreCounter = document.getElementById("loadMoreCounter");
+      const allCards = Array.from(projectsGrid.querySelectorAll(".proj-card"));
+
+      function getFilteredCards() {
+        if (activeFilter === "all") return allCards;
+        return allCards.filter((c) => c.dataset.cat === activeFilter);
+      }
+
+      function updateProjectsView(resetPagination) {
+        if (resetPagination) visibleCount = PROJECTS_PER_PAGE;
+
+        const filtered = getFilteredCards();
+        const total = filtered.length;
+        const shown = Math.min(visibleCount, total);
+
+        allCards.forEach((c) => c.classList.add("hide"));
+        filtered.slice(0, shown).forEach((c) => c.classList.remove("hide"));
+
+        const isDesktop = window.innerWidth > 980;
+        projectsGrid.classList.toggle(
+          "single-row-center",
+          isDesktop && total > 0 && total <= 3,
+        );
+
+        if (total === 0) {
+          loadMoreWrap.style.display = "none";
+          return;
+        }
+        loadMoreWrap.style.display = "flex";
+
+        if (shown >= total) {
+          loadMoreBtn.classList.add("done");
+          loadMoreBtn.innerHTML = `
+      <i class="fas fa-check"></i>
+      <span data-fa>همه پروژه‌ها نمایش داده شد</span>
+      <span data-en>All projects loaded</span>`;
+          loadMoreBtn.querySelectorAll("[data-fa]").forEach((el) => {
+            el.style.display = lang === "fa" ? "" : "none";
+          });
+          loadMoreBtn.querySelectorAll("[data-en]").forEach((el) => {
+            el.style.display = lang === "en" ? "" : "none";
+          });
+          loadMoreBtn.style.pointerEvents = "none";
+        } else {
+          loadMoreBtn.classList.remove("done");
+          loadMoreBtn.innerHTML = `
+      <i class="fas fa-chevron-down"></i>
+      <span data-fa>نمایش پروژه‌های بیشتر</span>
+      <span data-en>Show More Projects</span>`;
+          loadMoreBtn.querySelectorAll("[data-fa]").forEach((el) => {
+            el.style.display = lang === "fa" ? "" : "none";
+          });
+          loadMoreBtn.querySelectorAll("[data-en]").forEach((el) => {
+            el.style.display = lang === "en" ? "" : "none";
+          });
+          loadMoreBtn.style.pointerEvents = "";
+        }
+
+        loadMoreCounter.innerHTML =
+          lang === "fa"
+            ? `نمایش <strong>${shown}</strong> از <strong>${total}</strong> پروژه`
+            : `Showing <strong>${shown}</strong> of <strong>${total}</strong> projects`;
+      }
+
+      function loadMoreProjects() {
+        visibleCount += PROJECTS_PER_PAGE;
+        updateProjectsView(false);
+      }
+
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeFilter = btn.dataset.filter;
+          document.querySelectorAll(".filter-btn").forEach((b) => {
+            b.classList.toggle("active", b.dataset.filter === activeFilter);
+          });
+          updateProjectsView(true);
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        updateProjectsView(false);
+      });
+
+      updateProjectsView(true);
+
+      /* ============ SLIDER ============ */
+      const slider = document.getElementById("slider");
+      const slides = slider ? slider.querySelectorAll(".slide") : [];
+      const nav = document.getElementById("sliderNav");
+      let current = 0;
+      slides.forEach((_, i) => {
+        const b = document.createElement("button");
+        if (i === 0) b.classList.add("active");
+        b.addEventListener("click", () => goSlide(i));
+        nav.appendChild(b);
+      });
+      function goSlide(i) {
+        if (!slider || !slides.length) return;
+        current = (i + slides.length) % slides.length;
+        slider.style.transform = `translateX(${-current * 100}%)`;
+        nav.querySelectorAll("button").forEach((b, idx) => {
+          b.classList.toggle("active", idx === current);
+          b.setAttribute("aria-current", idx === current ? "true" : "false");
+        });
+      }
+      if (slides.length > 1)
+        setInterval(() => goSlide((current + 1) % slides.length), 6000);
+
+      /* ============ CERTIFICATE VIEWER ============ */
+      (function () {
+        const modal = document.getElementById("certificateModal");
+        const modalImage = document.getElementById("certificateModalImage");
+        const modalTitle = document.getElementById("certificateModalTitle");
+        const closeBtn = document.getElementById("certificateModalClose");
+        if (!modal || !modalImage || !modalTitle || !closeBtn) return;
+        let lastFocused = null;
+        function openCertificate(card) {
+          lastFocused = card;
+          modalImage.src = card.dataset.certImage;
+          modalImage.alt = card.dataset.certTitleFa || "Certificate";
+          modalTitle.textContent =
+            lang === "en"
+              ? card.dataset.certTitleEn || "Certificate"
+              : card.dataset.certTitleFa || "گواهینامه";
+          modal.classList.add("open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          closeBtn.focus();
+        }
+        function closeCertificate() {
+          modal.classList.remove("open");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          modalImage.removeAttribute("src");
+          if (lastFocused) lastFocused.focus();
+        }
+        document.querySelectorAll(".cert-clickable").forEach((card) => {
+          card.addEventListener("click", () => openCertificate(card));
+        });
+        closeBtn.addEventListener("click", closeCertificate);
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) closeCertificate();
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && modal.classList.contains("open"))
+            closeCertificate();
+        });
+        window.refreshCertificateModalLanguage = function () {
+          if (modal.classList.contains("open") && lastFocused) {
+            modalTitle.textContent =
+              lang === "en"
+                ? lastFocused.dataset.certTitleEn || "Certificate"
+                : lastFocused.dataset.certTitleFa || "گواهینامه";
+          }
+        };
+      })();
+
+      /* ============ COPY ============ */
+      function copyText(text, el) {
+        navigator.clipboard.writeText(text).then(() => {
+          const hint = el.querySelector(".copy-hint");
+          const orig = hint.innerHTML;
+          hint.innerHTML =
+            lang === "fa"
+              ? '<i class="fas fa-check"></i> کپی شد'
+              : '<i class="fas fa-check"></i> Copied';
+          setTimeout(() => {
+            hint.innerHTML = orig;
+          }, 1500);
+        });
+      }
+
+      /* ============ FORM ============ */
+      function submitForm(e) {
+        e.preventDefault();
+        let ok = true;
+        const name = document.getElementById("fName");
+        const email = document.getElementById("fEmail");
+        const msg = document.getElementById("fMsg");
+        [name, email, msg].forEach((el) => el.classList.remove("error"));
+        document
+          .querySelectorAll(".err-msg")
+          .forEach((el) => el.classList.remove("show"));
+        if (!name.value.trim()) {
+          name.classList.add("error");
+          document.getElementById("errName").classList.add("show");
+          document.getElementById("errNameEn").classList.add("show");
+          ok = false;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+          email.classList.add("error");
+          document.getElementById("errEmail").classList.add("show");
+          document.getElementById("errEmailEn").classList.add("show");
+          ok = false;
+        }
+        if (!msg.value.trim()) {
+          msg.classList.add("error");
+          document.getElementById("errMsg").classList.add("show");
+          document.getElementById("errMsgEn").classList.add("show");
+          ok = false;
+        }
+        if (ok) {
+          alert(
+            lang === "fa" ? "✓ پیام شما ارسال شد!" : "✓ Your message was sent!",
+          );
+          e.target.reset();
+        }
+        return false;
+      }
+
+      /* ============ SMOOTH SCROLL (اصلاح‌شده) ============ */
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href");
+
+          // ❌ خروج در این شرایط:
+          // - خالی یا فقط #
+          // - لینک دانلود
+          // - لینک خارجی یا فایل (file://, http://, پروژه‌ها)
+          // - href به # ختم نمی‌شود (یعنی anchor نیست)
+          if (
+            !href ||
+            href === "#" ||
+            href.charAt(0) !== "#" || // ← فقط anchorهای واقعی را پردازش کن
+            a.hasAttribute("download") ||
+            a.hasAttribute("target") // ← دکمه‌های live/download مودال را رد کن
+          )
+            return;
+
+          // فقط اگر یک anchor معتبر داخل صفحه باشد
+          let target = null;
+          try {
+            target = document.querySelector(href);
+          } catch (err) {
+            return; // سلکتور نامعتبر — نادیده بگیر
+          }
+
+          if (target) {
+            e.preventDefault();
+            const top =
+              target.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top, behavior: "smooth" });
+            closeMenu();
+          }
+        });
+      });
+
+      document.getElementById("projectModal").addEventListener("click", (e) => {
+        if (e.target.id === "projectModal") closeProject();
+      });
+
+      // اطمینان از بازشدن دموها و لینک دانلود با مسیر مطلق، حتی هنگام اجرای سایت به‌صورت فایل محلی
+      document
+        .getElementById("modalLive")
+        .addEventListener("click", function (e) {
+          const href = this.href;
+          if (!href || href.endsWith("#")) {
+            e.preventDefault();
+            return;
+          }
+          this.href = new URL(href, document.baseURI).href;
+        });
+
+      document.getElementById("pdfModal").addEventListener("click", (e) => {
+        if (e.target.id === "pdfModal") closePdf();
+      });
+
+      updateActiveNav();
+    </script>
+  </body>
+</html>
